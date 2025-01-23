@@ -6,6 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputReaderSO _inputReader;
+    [SerializeField] private float _gridSize;
+
+    
 
     private void OnEnable()
     {
@@ -15,12 +18,12 @@ public class Player : MonoBehaviour
 
     private void OnRight()
     {
-        transform.DOMove(transform.position + Vector3.right * 2, 0.5f);
+        transform.DOMove(transform.position + Vector3.right * _gridSize, 0.5f);
     }
 
     private void OnLeft()
     {
-        transform.DOMove(transform.position + Vector3.left * 2, 0.5f);
+        transform.DOMove(transform.position + Vector3.left * _gridSize, 0.5f);
     }
 
     private void OnDisable()
