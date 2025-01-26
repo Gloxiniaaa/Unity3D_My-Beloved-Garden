@@ -67,6 +67,15 @@ namespace GameInput
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""f3c937a3-25b2-41ff-a593-bb4df39dee0c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Right"",
                     ""type"": ""Button"",
                     ""id"": ""dfe2a0dd-f998-403c-b052-fce5c65f68d4"",
@@ -138,6 +147,138 @@ namespace GameInput
                     ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3fb9c2e-002c-47e0-882d-16c7975f611f"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""65a9da49-39e8-45f1-919b-4b2cc13a7e5f"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f4d598d4-292f-4b5a-bc3d-d2a44d63fbc9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""be02bc5a-1019-49bd-8552-4002bab1c39c"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a927e725-dbe9-4611-a28f-23dff354bc0a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""798068b0-aeb6-4a1e-82d0-48982a9aacca"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5b0508b6-d743-4250-b386-f9de19dfe62b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d8ab8b02-9d82-44a3-a021-1be16fe0e595"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6d338c73-655d-44e0-8ee0-e4fbadbcb328"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""534c3a45-489b-4969-a1cc-7f6561af98de"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c702b03-2aed-4be1-8f21-2c9d86d5f979"",
+                    ""path"": ""<XRController>/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afd7fedc-e647-46a3-b417-b67d0d9fb50a"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -150,6 +291,7 @@ namespace GameInput
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Left = m_Player.FindAction("Left", throwIfNotFound: true);
+            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Right = m_Player.FindAction("Right", throwIfNotFound: true);
             m_Player_Up = m_Player.FindAction("Up", throwIfNotFound: true);
             m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
@@ -261,6 +403,7 @@ namespace GameInput
         private readonly InputActionMap m_Player;
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Left;
+        private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Right;
         private readonly InputAction m_Player_Up;
         private readonly InputAction m_Player_Down;
@@ -269,6 +412,7 @@ namespace GameInput
             private @GameInput m_Wrapper;
             public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Left => m_Wrapper.m_Player_Left;
+            public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @Right => m_Wrapper.m_Player_Right;
             public InputAction @Up => m_Wrapper.m_Player_Up;
             public InputAction @Down => m_Wrapper.m_Player_Down;
@@ -284,6 +428,9 @@ namespace GameInput
                 @Left.started += instance.OnLeft;
                 @Left.performed += instance.OnLeft;
                 @Left.canceled += instance.OnLeft;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
                 @Right.started += instance.OnRight;
                 @Right.performed += instance.OnRight;
                 @Right.canceled += instance.OnRight;
@@ -300,6 +447,9 @@ namespace GameInput
                 @Left.started -= instance.OnLeft;
                 @Left.performed -= instance.OnLeft;
                 @Left.canceled -= instance.OnLeft;
+                @Move.started -= instance.OnMove;
+                @Move.performed -= instance.OnMove;
+                @Move.canceled -= instance.OnMove;
                 @Right.started -= instance.OnRight;
                 @Right.performed -= instance.OnRight;
                 @Right.canceled -= instance.OnRight;
@@ -333,6 +483,7 @@ namespace GameInput
         public interface IPlayerActions
         {
             void OnLeft(InputAction.CallbackContext context);
+            void OnMove(InputAction.CallbackContext context);
             void OnRight(InputAction.CallbackContext context);
             void OnUp(InputAction.CallbackContext context);
             void OnDown(InputAction.CallbackContext context);

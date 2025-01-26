@@ -11,6 +11,7 @@ namespace GameInput
         public event UnityAction Right = delegate { };
         public event UnityAction Up = delegate { };
         public event UnityAction Down = delegate { };
+        public event UnityAction<Vector2> Move = delegate { };
         private GameInput _gameInput;
 
         private void OnEnable()
@@ -42,6 +43,14 @@ namespace GameInput
         {
             if (context.phase == InputActionPhase.Performed)
                 Up.Invoke();
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                Move.Invoke(context.ReadValue<Vector2>());
+            }
         }
     }
 }
