@@ -7,9 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputReaderSO _inputReader;
-    [SerializeField] private float _gridSize;
     public Vector3 TargetDirection { get; private set; }
-
     private readonly StateMachine _stateMachine = new();
     private IdleState _idle; //default state, some states will automatically exit when their animations end, then the defualt state will be set 
 
