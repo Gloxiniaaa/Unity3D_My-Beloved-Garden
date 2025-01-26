@@ -15,8 +15,6 @@ namespace GameInput
         private float touchStartTime;
 
         public event UnityAction<Vector2> Move = delegate { };
-        public event UnityAction<Vector2> Swipe = delegate { };
-
 
         private void OnEnable()
         {
@@ -54,7 +52,6 @@ namespace GameInput
                 if (swipeDelta.magnitude > swipeDistanceThreshold)
                 {
                     Move.Invoke(GetSwipeDirection(swipeDelta));
-                    Swipe?.Invoke(GetSwipeDirection(swipeDelta));
                 }
             }
         }
