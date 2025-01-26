@@ -33,8 +33,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        // _inputReader.Left += OnLeft;
-        // _inputReader.Right += OnRight;
         _inputReader.Move += Move;
     }
 
@@ -58,22 +56,9 @@ public class Player : MonoBehaviour
 
     private void Update() => _stateMachine.Tick();
 
-    private void OnRight()
-    {
-        // transform.DOMove(transform.position + Vector3.right * _gridSize, 0.5f);
-        _stateMachine.RequestSwitchState(typeof(MoveForwardState));
-    }
-
-    private void OnLeft()
-    {
-        TargetDirection = Vector3.left;
-        _stateMachine.RequestSwitchState(typeof(MoveState));
-    }
 
     private void OnDisable()
     {
-        // _inputReader.Left -= OnLeft;
-        // _inputReader.Right -= OnRight;
         _inputReader.Move -= Move;
     }
 
