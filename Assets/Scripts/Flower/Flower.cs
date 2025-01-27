@@ -1,9 +1,12 @@
 using DG.Tweening;
+using ObjectPool;
 using UnityEngine;
 
-public class Flower : MonoBehaviour
+public class Flower : MonoBehaviour, IPooledObject<Flower>
 {
     private Collider _collider;
+    private IPool<Flower> _flowerPool;
+
     private void Awake()
     {
         transform.localScale = Vector3.zero;
@@ -23,12 +26,26 @@ public class Flower : MonoBehaviour
     {
         _collider.enabled = false;
         transform.DOKill();
-        transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() => gameObject.SetActive(false));
+        transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+            ReturnToPool();
+        });
     }
 
     private void OnDisable()
     {
         transform.localScale = Vector3.zero;
         transform.DOKill();
+    }
+
+    public void ReturnToPool()
+    {
+        _flowerPool.Return(this);
+    }
+
+    public void AssignPool(IPool<Flower> pool)
+    {
+        _flowerPool = pool;
     }
 }

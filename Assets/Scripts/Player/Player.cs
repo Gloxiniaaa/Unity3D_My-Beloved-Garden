@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Collider _collider;
     public Vector3 TargetDirection { get; private set; } // read by states, set by controller
     private IdleState _idle; // default state, some states will automatically exit when their animations end, then the defualt state will be set 
     private MoveState _move;
@@ -15,7 +14,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Animator animator = GetComponent<Animator>();
-        _collider = GetComponent<Collider>();
         _idle = new();
         _move = new(this, animator);
         _reverseMove = new(this, animator);
