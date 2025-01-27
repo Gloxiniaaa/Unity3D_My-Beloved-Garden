@@ -9,7 +9,7 @@ public class CommandInvoker
         _commandList = new Stack<ICommand>();
     }
 
-    public void DoCommand(ICommand newCommand)
+    public void DoAndSaveCommand(ICommand newCommand)
     {
         _commandList.Push(newCommand);
         newCommand.Execute();

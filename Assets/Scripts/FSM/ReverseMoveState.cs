@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class MoveState : IState
+public class ReverseMoveState : IState
 {
     private readonly Player _host;
     private readonly Animator _animator;
@@ -9,9 +9,8 @@ public class MoveState : IState
     private readonly float _jumpPower = 0.5f;
     private readonly int _boolMoveAnimHash = Animator.StringToHash("isMoving");
     private Tween _currentRotationTween;
-    private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, 1 << Constant.OBSTACLE_LAYER);
 
-    public MoveState(Player host, Animator animator)
+    public ReverseMoveState(Player host, Animator animator)
     {
         _host = host;
         _animator = animator;
@@ -27,7 +26,7 @@ public class MoveState : IState
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(_moveDuration);
         sequence.Join(RotateToDirection(_host.TargetDirection));
-        sequence.Join(JumpInDirection(_obstacleDectector ? Vector3.zero : _host.TargetDirection));
+        sequence.Join(JumpInOppositeDirection(_host.TargetDirection));
         sequence.AppendCallback(() => { _animator.SetBool(_boolMoveAnimHash, false); });
     }
 
@@ -45,8 +44,10 @@ public class MoveState : IState
 
         return _currentRotationTween;
     }
-    public Tween JumpInDirection(Vector3 direction)
+    public Tween JumpInOppositeDirection(Vector3 direction)
     {
+        direction = -direction;
+
         direction.Normalize();
 
         Vector3 jumpEndpoint = _host.transform.position + direction * Constant.GRID_SIZE;

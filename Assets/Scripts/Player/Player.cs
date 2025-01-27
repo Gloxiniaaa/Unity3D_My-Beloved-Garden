@@ -1,70 +1,82 @@
-using System;
-using DG.Tweening;
-using FSM;
-using GameInput;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private InputReaderSO _inputReader;
-    public Vector3 TargetDirection { get; private set; }
-    private readonly StateMachine _stateMachine = new();
-    private IdleState _idle; //default state, some states will automatically exit when their animations end, then the defualt state will be set 
+    private Collider _collider;
+    public Vector3 TargetDirection { get; private set; } // read by states, set by controller
+    private IdleState _idle; // default state, some states will automatically exit when their animations end, then the defualt state will be set 
+    private MoveState _move;
+    private ReverseMoveState _reverseMove;
+    public IState CurrentState { get; private set; }
 
-    void At(IState from, IState to) => _stateMachine.AddTransition(from, to);
-
+    [Header("Broadcast on:")]
+    [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
 
     private void Awake()
     {
         Animator animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider>();
         _idle = new();
-        MoveForwardState moveForward = new(this.gameObject, animator);
-        MoveState move = new(this, animator);
-
-        At(moveForward, _idle);
-        At(_idle, moveForward);
-
-        At(move, _idle);
-        At(_idle, move);
-
-        _stateMachine.SetState(_idle);
+        _move = new(this, animator);
+        _reverseMove = new(this, animator);
     }
 
-
-    private void OnEnable()
+    private void Start()
     {
-        _inputReader.Move += Move;
+        SwitchState(_idle);
     }
 
-    private void Move(Vector2 direction)
+    public bool CanMove()
     {
-        if (direction.x != 0 && direction.y != 0)
-            return;
+        return CurrentState == _idle;
+    }
 
-        if (direction.x != 0)
+    public void Move(Vector3 direction)
+    {
+        TargetDirection = direction;
+        SwitchState(_move);
+    }
+
+    public void ReverseMove(Vector3 direction)
+    {
+        TargetDirection = direction;
+        SwitchState(_reverseMove);
+    }
+
+    // private void Update() => CurrentState.Tick();
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == Constant.LAND_LAYER && CurrentState == _move)
         {
-            TargetDirection = (Vector3)direction;
-            _stateMachine.RequestSwitchState(typeof(MoveState));
+            _spawnFlowerChannel.RaiseEvent(other.transform.position);
         }
-        if (direction.y != 0)
-        {
-            TargetDirection = new Vector3(0, 0, direction.y);
-            _stateMachine.RequestSwitchState(typeof(MoveState));
-        }
-
     }
-
-    private void Update() => _stateMachine.Tick();
-
-
-    private void OnDisable()
+    private void OnTriggerEnter(Collider other)
     {
-        _inputReader.Move -= Move;
+        if (other.gameObject.layer == Constant.FLOWER_LAYER)
+        {
+            if (CurrentState == _reverseMove)
+            {
+                other.gameObject.GetComponent<Flower>().ReverseBloom();
+            }
+            else if (CurrentState == _move)
+            {
+                Debug.Log("You stepped on a flower!!!");
+            }
+        }
     }
 
     // called by animation event
     private void OnExitState()
     {
-        _stateMachine.SetState(_idle);
+        SwitchState(_idle);
+    }
+
+    private void SwitchState(IState newState)
+    {
+        CurrentState?.OnExit();
+        CurrentState = newState;
+        CurrentState.OnEnter();
     }
 }

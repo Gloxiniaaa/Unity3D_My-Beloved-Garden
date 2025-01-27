@@ -26,14 +26,6 @@ public class Flower : MonoBehaviour
         transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() => gameObject.SetActive(false));
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Constant.PLAYER_TAG))
-        {
-            Debug.Log("You stepped on a flower!!!");
-        }
-    }
-
     private void OnDisable()
     {
         transform.localScale = Vector3.zero;
