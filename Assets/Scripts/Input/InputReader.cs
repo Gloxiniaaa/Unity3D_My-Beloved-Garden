@@ -13,9 +13,10 @@ namespace GameInput
         private readonly float timeThreshold = 0.5f;
         private Vector2 startTouchPosition;
         private float touchStartTime;
-        [SerializeField] private VoidEventChannelSO _undoSpawnFlowerChannel;
 
         public event UnityAction<Vector2> Move = delegate { };
+        public event UnityAction Undo = delegate { };
+
 
         private void OnEnable()
         {
@@ -77,7 +78,7 @@ namespace GameInput
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                _undoSpawnFlowerChannel.RaiseEvent();
+                Undo?.Invoke();
             }
         }
     }
