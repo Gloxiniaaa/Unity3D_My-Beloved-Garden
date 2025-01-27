@@ -3,21 +3,35 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
+    private Collider _collider;
     private void Awake()
     {
         transform.localScale = Vector3.zero;
-    }
-
-    private void OnEnable()
-    {
-        Bloom();
+        _collider = GetComponent<BoxCollider>();
     }
 
     [ContextMenu("Bloom")]
     public void Bloom()
     {
+        _collider.enabled = true;
         transform.DOScale(1.0f, 1.0f).SetEase(Ease.OutBack);
         transform.DORotate(new Vector3(0, 720, 0), 2.0f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    [ContextMenu("Reverse Bloom")]
+    public void ReverseBloom()
+    {
+        _collider.enabled = false;
+        transform.DOKill();
+        transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() => gameObject.SetActive(false));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constant.PLAYER_TAG))
+        {
+            Debug.Log("You stepped on a flower!!!");
+        }
     }
 
     private void OnDisable()

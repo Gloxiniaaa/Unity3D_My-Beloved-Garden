@@ -59,6 +59,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "UnDo",
+                    "type": "Button",
+                    "id": "1f1a8594-d8ed-4d1a-ac97-4f52980d310e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -224,6 +233,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PrimaryPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8a4c4c9-6228-42b2-8107-d3573fc4fc91",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UnDo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

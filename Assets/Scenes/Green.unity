@@ -2871,6 +2871,8 @@ MonoBehaviour:
     type: 3}
   _spawnFlowerChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
     type: 2}
+  _undoSpawnFlowerChannel: {fileID: 11400000, guid: 46e935b4bbd51d14987ab562c8e18346,
+    type: 2}
 --- !u!4 &1256455426
 Transform:
   m_ObjectHideFlags: 0

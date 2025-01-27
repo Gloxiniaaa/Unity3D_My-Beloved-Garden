@@ -10,9 +10,10 @@ namespace GameInput
         private GameInput _gameInput;
         private InputAction touchPositionAction;
         private readonly float swipeDistanceThreshold = 60f;
-        private readonly float timeThreshold = 0.3f;
+        private readonly float timeThreshold = 0.5f;
         private Vector2 startTouchPosition;
         private float touchStartTime;
+        [SerializeField] private VoidEventChannelSO _undoSpawnFlowerChannel;
 
         public event UnityAction<Vector2> Move = delegate { };
 
@@ -24,7 +25,7 @@ namespace GameInput
             touchPositionAction = _gameInput.Player.PrimaryPosition;
         }
 
-        public void OnMove(InputAction.CallbackContext context)
+        public void OnMove(InputAction.CallbackContext context) //WASD
         {
             if (context.phase == InputActionPhase.Performed)
             {
@@ -70,6 +71,14 @@ namespace GameInput
         public void OnPrimaryPosition(InputAction.CallbackContext context)
         {
             // throw new System.NotImplementedException();
+        }
+
+        public void OnUnDo(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                _undoSpawnFlowerChannel.RaiseEvent();
+            }
         }
     }
 }

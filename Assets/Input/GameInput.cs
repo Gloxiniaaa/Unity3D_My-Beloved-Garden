@@ -83,6 +83,15 @@ namespace GameInput
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UnDo"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f1a8594-d8ed-4d1a-ac97-4f52980d310e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -250,6 +259,17 @@ namespace GameInput
                     ""action"": ""PrimaryPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8a4c4c9-6228-42b2-8107-d3573fc4fc91"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UnDo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -264,6 +284,7 @@ namespace GameInput
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_PrimaryContact = m_Player.FindAction("PrimaryContact", throwIfNotFound: true);
             m_Player_PrimaryPosition = m_Player.FindAction("PrimaryPosition", throwIfNotFound: true);
+            m_Player_UnDo = m_Player.FindAction("UnDo", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -374,6 +395,7 @@ namespace GameInput
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_PrimaryContact;
         private readonly InputAction m_Player_PrimaryPosition;
+        private readonly InputAction m_Player_UnDo;
         public struct PlayerActions
         {
             private @GameInput m_Wrapper;
@@ -381,6 +403,7 @@ namespace GameInput
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @PrimaryContact => m_Wrapper.m_Player_PrimaryContact;
             public InputAction @PrimaryPosition => m_Wrapper.m_Player_PrimaryPosition;
+            public InputAction @UnDo => m_Wrapper.m_Player_UnDo;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -399,6 +422,9 @@ namespace GameInput
                 @PrimaryPosition.started += instance.OnPrimaryPosition;
                 @PrimaryPosition.performed += instance.OnPrimaryPosition;
                 @PrimaryPosition.canceled += instance.OnPrimaryPosition;
+                @UnDo.started += instance.OnUnDo;
+                @UnDo.performed += instance.OnUnDo;
+                @UnDo.canceled += instance.OnUnDo;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -412,6 +438,9 @@ namespace GameInput
                 @PrimaryPosition.started -= instance.OnPrimaryPosition;
                 @PrimaryPosition.performed -= instance.OnPrimaryPosition;
                 @PrimaryPosition.canceled -= instance.OnPrimaryPosition;
+                @UnDo.started -= instance.OnUnDo;
+                @UnDo.performed -= instance.OnUnDo;
+                @UnDo.canceled -= instance.OnUnDo;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -438,6 +467,7 @@ namespace GameInput
             void OnMove(InputAction.CallbackContext context);
             void OnPrimaryContact(InputAction.CallbackContext context);
             void OnPrimaryPosition(InputAction.CallbackContext context);
+            void OnUnDo(InputAction.CallbackContext context);
         }
     }
 }
