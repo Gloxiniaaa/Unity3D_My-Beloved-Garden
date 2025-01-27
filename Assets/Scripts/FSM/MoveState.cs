@@ -7,8 +7,10 @@ public class MoveState : IState
     private Animator _animator;
     private readonly float _moveDuration = 0.3f;
     private readonly float _jumpPower = 0.5f;
-    private int _BoolMoveAnimHash = Animator.StringToHash("isMoving");
+    private readonly int _boolMoveAnimHash = Animator.StringToHash("isMoving");
+    private readonly int _denyAnimHash = Animator.StringToHash("emote-no");
     private Tween _currentRotationTween;
+    private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, 1 << Constant.OBSTACLE_LAYER);
 
     public MoveState(Player host, Animator animator)
     {
@@ -22,13 +24,12 @@ public class MoveState : IState
 
     public void OnEnter()
     {
-        _animator.SetBool(_BoolMoveAnimHash, true);
-
+        _animator.SetBool(_boolMoveAnimHash, true);
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(_moveDuration);
         sequence.Join(RotateToDirection(_host.TargetDirection));
-        sequence.Join(JumpInDirection(_host.TargetDirection));
-        sequence.AppendCallback(() => { _animator.SetBool(_BoolMoveAnimHash, false); });
+        sequence.Join(JumpInDirection(_obstacleDectector ? Vector3.zero : _host.TargetDirection));
+        sequence.AppendCallback(() => { _animator.SetBool(_boolMoveAnimHash, false); });
     }
 
     public Tween RotateToDirection(Vector3 direction)
@@ -49,7 +50,7 @@ public class MoveState : IState
     {
         direction.Normalize();
 
-        Vector3 jumpEndpoint = _host.transform.position + direction;
+        Vector3 jumpEndpoint = _host.transform.position + direction * Constant.GRID_SIZE;
 
         jumpEndpoint.y = _host.transform.position.y;
 

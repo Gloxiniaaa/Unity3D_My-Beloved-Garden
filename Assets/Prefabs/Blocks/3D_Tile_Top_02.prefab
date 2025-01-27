@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3D_Tile_Top_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3efdcce15bec88f48b2ae512ac39ae6a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
