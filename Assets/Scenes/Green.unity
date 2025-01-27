@@ -2889,8 +2889,6 @@ MonoBehaviour:
     type: 3}
   _spawnFlowerChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
     type: 2}
-  _undoSpawnFlowerChannel: {fileID: 11400000, guid: 46e935b4bbd51d14987ab562c8e18346,
-    type: 2}
 --- !u!4 &1256455426
 Transform:
   m_ObjectHideFlags: 0
@@ -5177,6 +5175,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: character-female-b
       objectReference: {fileID: 0}
+    - target: {fileID: 7926031003476553172, guid: 6ddef3bdc4f326a419dc3b351df507ad,
+        type: 3}
+      propertyPath: _spawnFlowerChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
