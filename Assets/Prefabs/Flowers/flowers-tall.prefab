@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4edb66eae428ba46b1db29101dea123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}
 --- !u!65 &7932433877943752963
 BoxCollider:
   m_ObjectHideFlags: 0

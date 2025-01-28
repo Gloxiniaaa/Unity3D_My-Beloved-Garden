@@ -3424,6 +3424,7 @@ MonoBehaviour:
     type: 2}
   _onLandSlotPlantedChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
     type: 2}
+  _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}
 --- !u!65 &1935392285
 BoxCollider:
   m_ObjectHideFlags: 0

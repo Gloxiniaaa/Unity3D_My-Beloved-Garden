@@ -13,12 +13,19 @@ public class CompletionChecker : MonoBehaviour
     [Header("Listen to:")]
     [SerializeField] private IntEventChannelSO _countLandSlotsChannel;
     [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
+    [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
 
 
     private void OnEnable()
     {
         _countLandSlotsChannel.OnEventRaised += CountLandSlots;
         _onLandSlotPlantedChannel.OnEventRaised += AddPlantedLandSlot;
+        _onUndoFlowerBloom.OnEventRaised += RemovePlantedLandSlot;
+    }
+
+    private void RemovePlantedLandSlot()
+    {
+        _plantedLandSlots--;
     }
 
     private void AddPlantedLandSlot(Vector3 arg0)
@@ -53,5 +60,6 @@ public class CompletionChecker : MonoBehaviour
     {
         _countLandSlotsChannel.OnEventRaised -= CountLandSlots;
         _onLandSlotPlantedChannel.OnEventRaised -= AddPlantedLandSlot;
+        _onUndoFlowerBloom.OnEventRaised -= RemovePlantedLandSlot;
     }
 }

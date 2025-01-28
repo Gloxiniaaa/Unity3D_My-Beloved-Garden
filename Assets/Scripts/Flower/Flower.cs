@@ -2,10 +2,13 @@ using DG.Tweening;
 using ObjectPool;
 using UnityEngine;
 
+
+[RequireComponent(typeof(BoxCollider))]
 public class Flower : MonoBehaviour, IPooledObject<Flower>
 {
     private Collider _collider;
     private IPool<Flower> _flowerPool;
+    [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
 
     private void Awake()
     {
@@ -24,13 +27,10 @@ public class Flower : MonoBehaviour, IPooledObject<Flower>
     [ContextMenu("Reverse Bloom")]
     public void ReverseBloom()
     {
+        _onUndoFlowerBloom.RaiseEvent();
         _collider.enabled = false;
         transform.DOKill();
-        transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
-        {
-            gameObject.SetActive(false);
-            ReturnToPool();
-        });
+        transform.DOScale(0, 0.5f).SetEase(Ease.InBack).OnComplete(() => ReturnToPool());
     }
 
     private void OnDisable()
