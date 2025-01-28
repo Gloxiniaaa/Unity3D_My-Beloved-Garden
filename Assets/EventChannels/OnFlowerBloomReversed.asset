@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2dfc6f0cfa9f6b4c81f4da2d3696523, type: 3}
-  m_Name: UndoFlowerBloom
+  m_Name: OnFlowerBloomReversed
   m_EditorClassIdentifier: 
   description: raised whenever a flower is bloom-reversed to remove planted slot
     (it not become unplanted landslot)

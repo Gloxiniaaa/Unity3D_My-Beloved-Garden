@@ -15,7 +15,7 @@ namespace GameInput
         private float touchStartTime;
 
         public event UnityAction<Vector2> Move = delegate { };
-        public event UnityAction Undo = delegate { };
+        [SerializeField] private VoidEventChannelSO _undoChannel;
 
 
         private void OnEnable()
@@ -78,7 +78,7 @@ namespace GameInput
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                Undo?.Invoke();
+                _undoChannel.RaiseEvent();
             }
         }
     }

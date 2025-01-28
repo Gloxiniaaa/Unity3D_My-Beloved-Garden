@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.Move += Move;
-        _inputReader.Undo += UndoMove;
+        _undoMoveChannel.OnEventRaised += UndoMove;
     }
 
     private void UndoMove()
@@ -48,6 +48,6 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         _inputReader.Move -= Move;
-        _inputReader.Undo -= UndoMove;
+        _undoMoveChannel.OnEventRaised -= UndoMove;
     }
 }

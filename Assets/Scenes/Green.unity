@@ -1123,11 +1123,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5288344891858314805, guid: b045667e48f605c41ac06c1605c65b5a,
-        type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6092382119373744155, guid: b045667e48f605c41ac06c1605c65b5a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1232,26 +1227,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6351683389261536025, guid: b045667e48f605c41ac06c1605c65b5a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6351683389261536025, guid: b045667e48f605c41ac06c1605c65b5a,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6351683389261536025, guid: b045667e48f605c41ac06c1605c65b5a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6351683389261536025, guid: b045667e48f605c41ac06c1605c65b5a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7248792932738609718, guid: b045667e48f605c41ac06c1605c65b5a,
         type: 3}
@@ -3486,7 +3461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1688599911
 Transform:
   m_ObjectHideFlags: 0
@@ -3516,7 +3491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: b8c94ce819508744e9b90d96daaf1cef, type: 2}
-  _undoMoveChannel: {fileID: 11400000, guid: 46e935b4bbd51d14987ab562c8e18346, type: 2}
+  _undoMoveChannel: {fileID: 11400000, guid: 79a7ee71874837c48b698c04cb9ae538, type: 2}
   _player: {fileID: 1232051979}
 --- !u!4 &1714668777 stripped
 Transform:
@@ -4424,7 +4399,7 @@ PrefabInstance:
     - target: {fileID: 3382480739230100970, guid: 6ddef3bdc4f326a419dc3b351df507ad,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7926031003476553172, guid: 6ddef3bdc4f326a419dc3b351df507ad,
         type: 3}
