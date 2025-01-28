@@ -1248,6 +1248,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8493448591632762062, guid: b045667e48f605c41ac06c1605c65b5a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493448591632762062, guid: b045667e48f605c41ac06c1605c65b5a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493448591632762062, guid: b045667e48f605c41ac06c1605c65b5a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493448591632762062, guid: b045667e48f605c41ac06c1605c65b5a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9092954337883565413, guid: b045667e48f605c41ac06c1605c65b5a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2048,7 +2068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playSfxChannel: {fileID: 11400000, guid: 7bc71d1d10866704999f7874adb9f71a, type: 2}
-  _sfxVolumnEvent: {fileID: 11400000, guid: 3d8b7ada182f21041bab2255d4bb26ec, type: 2}
+  _uiSfxChannel: {fileID: 11400000, guid: c63a5832139189f48a6b323854a8008b, type: 2}
 --- !u!82 &920075730
 AudioSource:
   m_ObjectHideFlags: 0

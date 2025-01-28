@@ -145,4 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767a7eb857e64cd4ab6cd17775dbc6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UseItemChannel: {fileID: 11400000, guid: 79a7ee71874837c48b698c04cb9ae538, type: 2}
+  _clickSfx: {fileID: 11400000, guid: 9196ce798f9444a4fb694f91b5431005, type: 2}
+  _useItemChannel: {fileID: 11400000, guid: 79a7ee71874837c48b698c04cb9ae538, type: 2}
+  _uiSfxChannel: {fileID: 11400000, guid: c63a5832139189f48a6b323854a8008b, type: 2}

@@ -6,8 +6,8 @@ public class AudioPlayer : MonoBehaviour
     private AudioSource _audioSource;
 
     [Header("Listen on channel:")]
-    [SerializeField] AudioEventChannelSO _playSfxChannel;
-    [SerializeField] FloatEventChannelSO _sfxVolumnEvent;
+    [SerializeField] private AudioEventChannelSO _playSfxChannel;
+    [SerializeField] private AudioEventChannelSO _uiSfxChannel;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class AudioPlayer : MonoBehaviour
     private void OnEnable()
     {
         _playSfxChannel.OnEventRaised += PlayAudio;
-        _sfxVolumnEvent.OnEventRaised += ChangeVolumn;
+        _uiSfxChannel.OnEventRaised += PlayAudio;
     }
 
     private void PlayAudio(AudioGroupSO audioGroupSO)
@@ -25,14 +25,9 @@ public class AudioPlayer : MonoBehaviour
         _audioSource.PlayOneShot(audioGroupSO.GetRandomClip(), audioGroupSO.Volume);
     }
 
-    private void ChangeVolumn(float value)
-    {
-        _audioSource.volume = value;
-    }
-
     private void OnDisable()
     {
         _playSfxChannel.OnEventRaised -= PlayAudio;
-        _sfxVolumnEvent.OnEventRaised -= ChangeVolumn;
+        _uiSfxChannel.OnEventRaised -= PlayAudio;
     }
 }
