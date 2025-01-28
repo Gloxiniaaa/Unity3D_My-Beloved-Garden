@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa217ac9435ec347b8eb493eab9de82, type: 3}
-  m_Name: SpawnFlower
+  m_Script: {fileID: 11500000, guid: 83a2112b16f4f3948bbef9cdf9e5c0c9, type: 3}
+  m_Name: OnCompletion
   m_EditorClassIdentifier: 
-  description: broadcasted by blocks, listened by flowerSpawner
+  description: send true if player planted enough flowers and false otherwise

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public IState CurrentState { get; private set; }
 
     [Header("Broadcast on:")]
-    [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
+    [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == Constant.LAND_LAYER && CurrentState == _move)
         {
-            _spawnFlowerChannel.RaiseEvent(other.transform.position);
+            _onLandSlotPlantedChannel.RaiseEvent(other.transform.position);
         }
     }
     private void OnTriggerEnter(Collider other)

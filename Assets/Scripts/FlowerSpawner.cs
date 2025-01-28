@@ -5,13 +5,11 @@ public class FlowerSpawner : MonoBehaviour
 {
     [SerializeField] private ComponentPoolSO<Flower> _flowerPool;
     [Header("Listen on:")]
-    [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
-
-    // @TODO: implement an object pool for this spawner 
+    [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
 
     private void OnEnable()
     {
-        _spawnFlowerChannel.OnEventRaised += SpawnFlower;
+        _onLandSlotPlantedChannel.OnEventRaised += SpawnFlower;
     }
 
     private void SpawnFlower(Vector3 spawnPos)
@@ -25,6 +23,6 @@ public class FlowerSpawner : MonoBehaviour
 
     private void OnDisable()
     {
-        _spawnFlowerChannel.OnEventRaised -= SpawnFlower;
+        _onLandSlotPlantedChannel.OnEventRaised -= SpawnFlower;
     }
 }
