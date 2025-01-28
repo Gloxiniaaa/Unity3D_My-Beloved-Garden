@@ -8,8 +8,13 @@ public class Player : MonoBehaviour
     private ReverseMoveState _reverseMove;
     public IState CurrentState { get; private set; }
 
+    [Header("SFX")]
+    [SerializeField] private AudioGroupSO _sfxJump;
+    [SerializeField] private AudioGroupSO _sfxRewind;
+
     [Header("Broadcast on:")]
     [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
+    [SerializeField] private AudioEventChannelSO _playSfxChannel;
 
     private void Awake()
     {
@@ -31,12 +36,14 @@ public class Player : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
+        _playSfxChannel.RaiseEvent(_sfxJump);
         TargetDirection = direction;
         SwitchState(_move);
     }
 
     public void ReverseMove(Vector3 direction)
     {
+        _playSfxChannel.RaiseEvent(_sfxRewind);
         TargetDirection = direction;
         SwitchState(_reverseMove);
     }
