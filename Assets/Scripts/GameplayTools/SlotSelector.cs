@@ -27,30 +27,34 @@ public class SlotSelector : MonoBehaviour
     {
         if (_indicator.activeInHierarchy)
         {
+            _inputReader.Move -= MoveIndicator;
             _indicator.SetActive(false);
             StopIndicatorAnimation();
-            _inputReader.Move -= MoveIndicator;
         }
         else
         {
+            _inputReader.Move += MoveIndicator;
             _indicator.SetActive(true);
             AnimateIndication();
-            _inputReader.Move += MoveIndicator;
             //TODO: set pos to player pos
         }
     }
 
 
-    private void MoveIndicator(Vector2 direction)
+    private void MoveIndicator(Vector2 input)
     {
-
+        Vector3 direction = Helper.InputTo3dAxisDirection(input);
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo, 100f, 1 << Constant.LAND_LAYER))
+        {
+            transform.position = hitInfo.transform.position;
+        }
     }
-
 
     private void AnimateIndication()
     {
         _indicator.transform.DOScale(0.75f, 0.5f).SetEase(Ease.InBack).SetLoops(-1, LoopType.Yoyo);
     }
+    
     private void StopIndicatorAnimation()
     {
         _indicator.transform.DOKill();
