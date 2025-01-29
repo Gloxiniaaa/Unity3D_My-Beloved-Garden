@@ -9,7 +9,7 @@ public class MoveState : IState
     private readonly float _jumpPower = 0.5f;
     private readonly int _boolMoveAnimHash = Animator.StringToHash("isMoving");
     private Tween _currentRotationTween;
-    private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, 1 << Constant.OBSTACLE_LAYER);
+    private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, Constant.OBSTACLE_LAYER_MASK);
 
     public MoveState(Player host, Animator animator)
     {
@@ -64,7 +64,7 @@ public class MoveState : IState
 
     private void CheckStepOnFlower()
     {
-        if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, 1 << Constant.FLOWER_LAYER))
+        if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, Constant.FLOWER_LAYER_MASK))
         {
             Debug.Log("You stepped on a flower!!!");
         }

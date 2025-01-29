@@ -44,7 +44,7 @@ public class SlotSelector : MonoBehaviour
     private void MoveIndicator(Vector2 input)
     {
         Vector3 direction = Helper.InputTo3dAxisDirection(input);
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo, 100f, 1 << Constant.LAND_LAYER))
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo, 100f, Constant.LAND_LAYER_MASK))
         {
             transform.position = hitInfo.transform.position;
         }

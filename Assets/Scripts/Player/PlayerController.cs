@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
         if (_player.CanMove())
         {
-            if (Physics.Raycast(_player.transform.position, direction, Constant.GRID_SIZE, 1 << Constant.OBSTACLE_LAYER))
+            if (Physics.Raycast(_player.transform.position, direction, Constant.GRID_SIZE, Constant.OBSTACLE_LAYER_MASK))
             {
                 _player.Move(direction); //it is a fake move so no need to save it in command history
             }

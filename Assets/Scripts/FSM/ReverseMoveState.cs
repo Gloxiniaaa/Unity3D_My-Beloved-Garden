@@ -35,7 +35,7 @@ public class ReverseMoveState : IState
 
     private void ReverseFlowerBloom()
     {
-        if (Physics.Raycast(_host.transform.position, -_host.TargetDirection, out RaycastHit hit, 1f, 1 << Constant.FLOWER_LAYER))
+        if (Physics.Raycast(_host.transform.position, -_host.TargetDirection, out RaycastHit hit, 1f, Constant.FLOWER_LAYER_MASK))
         {
             hit.collider.GetComponent<Flower>().ReverseBloom();
         }
