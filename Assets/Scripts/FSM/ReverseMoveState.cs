@@ -23,11 +23,22 @@ public class ReverseMoveState : IState
     public void OnEnter()
     {
         _animator.SetBool(_boolMoveAnimHash, true);
+        
+        ReverseFlowerBloom();
+        
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(_moveDuration);
         sequence.Join(RotateToDirection(_host.TargetDirection));
         sequence.Join(JumpInOppositeDirection(_host.TargetDirection));
         sequence.AppendCallback(() => { _animator.SetBool(_boolMoveAnimHash, false); });
+    }
+
+    private void ReverseFlowerBloom()
+    {
+        if (Physics.Raycast(_host.transform.position, -_host.TargetDirection, out RaycastHit hit, 1f, 1 << Constant.FLOWER_LAYER))
+        {
+            hit.collider.GetComponent<Flower>().ReverseBloom();
+        }
     }
 
     public Tween RotateToDirection(Vector3 direction)

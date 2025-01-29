@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private IdleState _idle; // default state, some states will automatically exit when their animations end, then the defualt state will be set 
     private MoveState _move;
     private ReverseMoveState _reverseMove;
+    private UseShovelState _useShovel;
     public IState CurrentState { get; private set; }
 
     [Header("SFX")]
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         _idle = new();
         _move = new(this, animator);
         _reverseMove = new(this, animator);
+        _useShovel = new(this, animator);
     }
 
     private void Start()
@@ -48,6 +50,12 @@ public class Player : MonoBehaviour
         SwitchState(_reverseMove);
     }
 
+    public void UseShovel(Vector3 direction)
+    {
+        TargetDirection = direction;
+        SwitchState(_useShovel);
+    }
+
     // private void Update() => CurrentState.Tick();
 
     private void OnTriggerExit(Collider other)
@@ -55,20 +63,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == Constant.LAND_LAYER && CurrentState == _move)
         {
             _onLandSlotPlantedChannel.RaiseEvent(other.transform.position);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == Constant.FLOWER_LAYER)
-        {
-            if (CurrentState == _reverseMove)
-            {
-                other.gameObject.GetComponent<Flower>().ReverseBloom();
-            }
-            else if (CurrentState == _move)
-            {
-                Debug.Log("You stepped on a flower!!!");
-            }
         }
     }
 

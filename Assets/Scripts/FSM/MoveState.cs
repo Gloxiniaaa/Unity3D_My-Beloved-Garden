@@ -59,5 +59,14 @@ public class MoveState : IState
 
     public void OnExit()
     {
+        CheckStepOnFlower();
+    }
+
+    private void CheckStepOnFlower()
+    {
+        if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, 1 << Constant.FLOWER_LAYER))
+        {
+            Debug.Log("You stepped on a flower!!!");
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace GameInput
 
         public event UnityAction<Vector2> Move = delegate { };
         [SerializeField] private VoidEventChannelSO _undoChannel;
+        [SerializeField] private VoidEventChannelSO _startShovelingChannel;
 
 
         private void OnEnable()
