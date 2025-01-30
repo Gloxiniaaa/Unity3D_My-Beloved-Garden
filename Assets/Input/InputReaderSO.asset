@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: InputReaderSO
   m_EditorClassIdentifier: 
   _undoChannel: {fileID: 11400000, guid: 79a7ee71874837c48b698c04cb9ae538, type: 2}
+  _toggleShovelingChannel: {fileID: 11400000, guid: 2e40fc5d84f67e84fa34a2865fd62af4,
+    type: 2}

@@ -92,6 +92,15 @@ namespace GameInput
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleShoveling"",
+                    ""type"": ""Button"",
+                    ""id"": ""112c499e-3419-448c-a7bc-3208d2554d3c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -270,6 +279,17 @@ namespace GameInput
                     ""action"": ""UnDo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2ae7860-c2cf-408c-ba17-935a3c6db911"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleShoveling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -285,6 +305,7 @@ namespace GameInput
             m_Player_PrimaryContact = m_Player.FindAction("PrimaryContact", throwIfNotFound: true);
             m_Player_PrimaryPosition = m_Player.FindAction("PrimaryPosition", throwIfNotFound: true);
             m_Player_UnDo = m_Player.FindAction("UnDo", throwIfNotFound: true);
+            m_Player_ToggleShoveling = m_Player.FindAction("ToggleShoveling", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -396,6 +417,7 @@ namespace GameInput
         private readonly InputAction m_Player_PrimaryContact;
         private readonly InputAction m_Player_PrimaryPosition;
         private readonly InputAction m_Player_UnDo;
+        private readonly InputAction m_Player_ToggleShoveling;
         public struct PlayerActions
         {
             private @GameInput m_Wrapper;
@@ -404,6 +426,7 @@ namespace GameInput
             public InputAction @PrimaryContact => m_Wrapper.m_Player_PrimaryContact;
             public InputAction @PrimaryPosition => m_Wrapper.m_Player_PrimaryPosition;
             public InputAction @UnDo => m_Wrapper.m_Player_UnDo;
+            public InputAction @ToggleShoveling => m_Wrapper.m_Player_ToggleShoveling;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -425,6 +448,9 @@ namespace GameInput
                 @UnDo.started += instance.OnUnDo;
                 @UnDo.performed += instance.OnUnDo;
                 @UnDo.canceled += instance.OnUnDo;
+                @ToggleShoveling.started += instance.OnToggleShoveling;
+                @ToggleShoveling.performed += instance.OnToggleShoveling;
+                @ToggleShoveling.canceled += instance.OnToggleShoveling;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -441,6 +467,9 @@ namespace GameInput
                 @UnDo.started -= instance.OnUnDo;
                 @UnDo.performed -= instance.OnUnDo;
                 @UnDo.canceled -= instance.OnUnDo;
+                @ToggleShoveling.started -= instance.OnToggleShoveling;
+                @ToggleShoveling.performed -= instance.OnToggleShoveling;
+                @ToggleShoveling.canceled -= instance.OnToggleShoveling;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -468,6 +497,7 @@ namespace GameInput
             void OnPrimaryContact(InputAction.CallbackContext context);
             void OnPrimaryPosition(InputAction.CallbackContext context);
             void OnUnDo(InputAction.CallbackContext context);
+            void OnToggleShoveling(InputAction.CallbackContext context);
         }
     }
 }

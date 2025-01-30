@@ -1,4 +1,3 @@
-using System;
 using GameInput;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _undoMoveChannel;
     [SerializeField] private VoidEventChannelSO _useShovelChannel;
     [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
+    [SerializeField] private GameObject _shovel;
 
     [SerializeField] private Player _player;
     private CommandInvoker _playerCommandInvoker;
@@ -41,12 +41,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnStartShoveling()
     {
+        _shovel.SetActive(true);
         _inputReader.Move -= Move;
         _inputReader.Move += UseShovel;
     }
 
     private void OnEndShoveling()
     {
+        _shovel.SetActive(false);
         _inputReader.Move -= UseShovel;
         _inputReader.Move += Move;
     }
@@ -57,7 +59,14 @@ public class PlayerController : MonoBehaviour
 
         if (_player.CanMove())
         {
-            _playerCommandInvoker.DoAndSaveCommand(new ShovelFlowerCommand(_player, direction, _spawnFlowerChannel, _player.transform.position + direction));
+            if (Physics.Raycast(_player.transform.position, direction, Constant.GRID_SIZE, Constant.FLOWER_LAYER_MASK))
+            {
+                _playerCommandInvoker.DoAndSaveCommand(new ShovelFlowerCommand(_player, direction, _spawnFlowerChannel, _player.transform.position + direction));
+            }
+            else
+            {
+                _player.UseShovel(direction); //it is a fake move so no need to save it in command history
+            }
         }
     }
 

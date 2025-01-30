@@ -16,7 +16,7 @@ namespace GameInput
 
         public event UnityAction<Vector2> Move = delegate { };
         [SerializeField] private VoidEventChannelSO _undoChannel;
-        [SerializeField] private VoidEventChannelSO _startShovelingChannel;
+        [SerializeField] private VoidEventChannelSO _toggleShovelingChannel;
 
 
         private void OnEnable()
@@ -80,6 +80,14 @@ namespace GameInput
             if (context.phase == InputActionPhase.Performed)
             {
                 _undoChannel.RaiseEvent();
+            }
+        }
+
+        public void OnToggleShoveling(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                _toggleShovelingChannel.RaiseEvent();
             }
         }
     }
