@@ -157,6 +157,48 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7411673178473475524}
     m_Modifications:
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dd2e6ef7ec9afde4a943b039426cff26,
+        type: 2}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7326705805084495250, guid: dd2e6ef7ec9afde4a943b039426cff26,
+        type: 2}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062739607997463389, guid: 77229ffd4deb3464bbd837d37b845805,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3373844585822341237, guid: 77229ffd4deb3464bbd837d37b845805,
         type: 3}
       propertyPath: m_Name
