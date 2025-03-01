@@ -4,7 +4,7 @@ using DG.Tweening;
 public class HeartBeatEffect : MonoBehaviour
 {
     private readonly float _duration = 0.5f;
-    private readonly float _interval = 2f;
+    private readonly float _interval = 1f;
 
 
     void Start()
