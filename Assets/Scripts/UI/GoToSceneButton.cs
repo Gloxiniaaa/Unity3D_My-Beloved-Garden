@@ -7,6 +7,6 @@ public class GoToSceneButton : MonoBehaviour
     
     public void GoToScene()
     {
-        SceneManager.LoadSceneAsync(_sceneIdx);
+        SceneManager.LoadScene(_sceneIdx);
     }
 }

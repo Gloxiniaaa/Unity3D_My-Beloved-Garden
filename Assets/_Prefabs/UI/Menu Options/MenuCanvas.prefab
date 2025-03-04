@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6849417833930229093}
-        m_TargetAssemblyTypeName: OptionsButton, Assembly-CSharp
-        m_MethodName: ToggleOptions
+        m_TargetAssemblyTypeName: CollapsingToggleButton, Assembly-CSharp
+        m_MethodName: ToggleCollapsing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee334a2e7e1ad941a84d8dc6b67eae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collapseMode: 1
 --- !u!1 &5848172950689662167
 GameObject:
   m_ObjectHideFlags: 0

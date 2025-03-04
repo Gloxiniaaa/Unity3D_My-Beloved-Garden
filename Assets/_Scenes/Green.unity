@@ -4236,56 +4236,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 524827605755074912, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 524827605755074912, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 524827605755074912, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 524827605755074912, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 819092093648127146, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleCollapsing
-      objectReference: {fileID: 0}
-    - target: {fileID: 819092093648127146, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CollapsingToggleButton, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180460512651302853, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180460512651302853, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180460512651302853, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180460512651302853, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3019810513014550727, guid: 3dcad8b03665e6246870ae1dce1caec9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4386,55 +4336,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3475908343526323182, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3475908343526323182, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3475908343526323182, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3475908343526323182, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5848172950689662167, guid: 3dcad8b03665e6246870ae1dce1caec9,
         type: 3}
       propertyPath: m_Name
       value: MenuCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6849417833930229093, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: _collapseMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940636335251817642, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940636335251817642, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940636335251817642, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940636335251817642, guid: 3dcad8b03665e6246870ae1dce1caec9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

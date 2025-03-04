@@ -13,7 +13,7 @@ public class LevelButtonGenerator : MonoBehaviour
 
     private void SetSelectedLevel(int leveNumber)
     {
-        _levelDatabase.SelectedLevel = leveNumber;
+        _levelDatabase.SelectedLevelId = leveNumber;
     }
 
     void Start()
@@ -23,7 +23,7 @@ public class LevelButtonGenerator : MonoBehaviour
 
     void PopulateLevels()
     {
-        foreach (LevelSO setting in _levelDatabase.levels)
+        foreach (LevelSO setting in _levelDatabase.Levels)
         {
             LevelButton newButton = Instantiate(_levelButtonPrefab, _container);
             newButton.Setup(setting);

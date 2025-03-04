@@ -17,11 +17,15 @@ public class GameInitiator : MonoBehaviour
     [SerializeField] private FlowerSpawner _flowerSpawner;
 
     [Header("Player Preferences")]
-    [SerializeField] private LevelSO _selectedLevelSO;
+    [SerializeField] private LevelDatabaseSO _levelDatabaseSO;
     [SerializeField] private PlayerController _playerController;
+    private LevelSO _selectedLevelSO;
     
     IEnumerator Start()
     {
+        // setup
+        _selectedLevelSO = _levelDatabaseSO.GetSelectedLevel();
+
         // initialize game UI
         Instantiate(_eventSystem);
         Instantiate(_gamePlayCanvas);
