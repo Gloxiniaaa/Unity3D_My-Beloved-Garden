@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelSO 0
   m_EditorClassIdentifier: 
   LevelNumber: 0
-  FlowerCount: 18
+  FlowerCount: 10
   PlayerSpawnPosition: {x: 1, y: 0.5, z: 0.75}
