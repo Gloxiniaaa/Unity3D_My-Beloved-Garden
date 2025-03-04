@@ -6,6 +6,7 @@ public class EndGameUI : MonoBehaviour
     [SerializeField] private GameObject _loseGamePannel;
     [Header("Listen to:")]
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
+    [SerializeField] private VoidEventChannelSO _onStepOnFlower;
 
     private CollapsibleButton _winCollapsible;
     private CollapsibleButton _loseCollapsible;
@@ -19,6 +20,7 @@ public class EndGameUI : MonoBehaviour
     private void OnEnable()
     {
         _onCompletionChannel.OnEventRaised += ShowPannel;
+        _onStepOnFlower.OnEventRaised += ShowLosePanel;
     }
 
     private void ShowPannel(bool win)
@@ -33,8 +35,14 @@ public class EndGameUI : MonoBehaviour
         }
     }
 
+    private void ShowLosePanel()
+    {
+        _loseCollapsible.Toggle();
+    }
+
     private void OnDisable()
     {
         _onCompletionChannel.OnEventRaised -= ShowPannel;
+        _onStepOnFlower.OnEventRaised -= ShowLosePanel;
     }
 }

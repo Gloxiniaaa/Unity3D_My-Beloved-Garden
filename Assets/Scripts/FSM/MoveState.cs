@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ public class MoveState : IState
     private readonly int _boolMoveAnimHash = Animator.StringToHash("isMoving");
     private Tween _currentRotationTween;
     private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, Constant.OBSTACLE_LAYER_MASK);
-
+    public event Action OnStepOnFlower;
+    
     public MoveState(Player host, Animator animator)
     {
         _host = host;
@@ -66,6 +68,7 @@ public class MoveState : IState
     {
         if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, Constant.FLOWER_LAYER_MASK))
         {
+            OnStepOnFlower?.Invoke();
             Debug.Log("You stepped on a flower!!!");
         }
     }

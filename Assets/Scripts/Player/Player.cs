@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Header("Broadcast on:")]
     [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
     [SerializeField] private AudioEventChannelSO _playSfxChannel;
+    [SerializeField] private VoidEventChannelSO _onStepOnFlower;
 
     private void Awake()
     {
@@ -24,6 +25,17 @@ public class Player : MonoBehaviour
         _move = new(this, animator);
         _reverseMove = new(this, animator);
         _useShovel = new(this, animator);
+
+    }
+
+    void OnEnable()
+    {
+        _move.OnStepOnFlower += OnStepOnFlower;
+    }
+
+    private void OnStepOnFlower()
+    {
+        _onStepOnFlower.RaiseEvent();
     }
 
     private void Start()
@@ -64,6 +76,11 @@ public class Player : MonoBehaviour
         {
             _onLandSlotPlantedChannel.RaiseEvent(other.transform.position);
         }
+    }
+
+    private void OnDisable()
+    {
+        _move.OnStepOnFlower -= OnStepOnFlower;
     }
 
     // called by animation event

@@ -1214,6 +1214,7 @@ MonoBehaviour:
   _loseGamePannel: {fileID: 377139774671624502}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
     type: 2}
+  _onStepOnFlower: {fileID: 11400000, guid: 6d82c2a4cd7a4b345a0f1294a4e20687, type: 2}
 --- !u!114 &6125688548548691858
 MonoBehaviour:
   m_ObjectHideFlags: 0
