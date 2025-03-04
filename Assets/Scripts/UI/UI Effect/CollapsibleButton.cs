@@ -9,7 +9,6 @@ public class CollapsibleButton : MonoBehaviour
     void Start()
     {
         Hide();
-        _isCollapsed = true;
     }
 
     public void Toggle()
@@ -22,19 +21,19 @@ public class CollapsibleButton : MonoBehaviour
         {
             Hide();
         }
-
-        _isCollapsed = !_isCollapsed;
     }
 
     private void Show()
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(1, _duration).SetEase(Ease.OutBack);
+        _isCollapsed = false;
     }
 
     private void Hide()
     {
         transform.localScale = Vector3.one;
         transform.DOScale(0, _duration).SetEase(Ease.InBack);
+        _isCollapsed = true;
     }
 }

@@ -21,4 +21,9 @@ public class HeartBeatEffect : MonoBehaviour
                      .AppendInterval(_interval)
                      .SetLoops(-1, LoopType.Restart);
     }
+
+    void OnDisable()
+    {
+        transform.DOKill();
+    }
 }

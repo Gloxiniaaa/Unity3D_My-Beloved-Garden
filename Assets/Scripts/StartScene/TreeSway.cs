@@ -17,4 +17,9 @@ public class TreeSway : MonoBehaviour
             .SetEase(Ease.InOutSine)
             .SetLoops(-1, LoopType.Yoyo);
     }
+
+    void OnDisable()
+    {
+        transform.DOKill();
+    }
 }
