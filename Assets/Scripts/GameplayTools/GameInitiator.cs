@@ -20,29 +20,35 @@ public class GameInitiator : MonoBehaviour
     [SerializeField] private LevelDatabaseSO _levelDatabaseSO;
     [SerializeField] private PlayerController _playerController;
     private LevelSO _selectedLevelSO;
-    
+
     IEnumerator Start()
     {
         // setup
         _selectedLevelSO = _levelDatabaseSO.GetSelectedLevel();
+        if (_selectedLevelSO == null)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            // initialize game UI
+            Instantiate(_eventSystem);
+            Instantiate(_gamePlayCanvas);
+            Instantiate(_menuCanvas);
+            Instantiate(_endGameCanvas);
+            yield return null;
 
-        // initialize game UI
-        Instantiate(_eventSystem);
-        Instantiate(_gamePlayCanvas);
-        Instantiate(_menuCanvas);
-        Instantiate(_endGameCanvas);
-        yield return null;
+            // intialize serrcices
+            Instantiate(_sfxPlayer);
+            Instantiate(_flowerSpawner);
+            yield return null;
 
-        // intialize serrcices
-        Instantiate(_sfxPlayer);
-        Instantiate(_flowerSpawner);
-        yield return null;
+            Addressables.LoadSceneAsync(_selectedLevelSO.SceneAddress, LoadSceneMode.Additive);
+            yield return null;
 
-        Addressables.LoadSceneAsync(_selectedLevelSO.SceneAddress, LoadSceneMode.Additive);
-        yield return null;
-
-        // the last thing to do is to initialize the player
-        Instantiate(_playerController);
+            // the last thing to do is to initialize the player
+            Instantiate(_playerController);
+        }
     }
 
 }

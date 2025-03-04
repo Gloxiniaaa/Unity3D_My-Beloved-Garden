@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: LevelDatabaseSO
   m_EditorClassIdentifier: 
   SelectedLevelId: 0
+  MaxUnlockedLevel: 0
+  _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
+    type: 2}
   Levels:
   - {fileID: 11400000, guid: 85802f4fd085d974fa10776e8849f87d, type: 2}
   - {fileID: 11400000, guid: 9208246dffcc0034f8d0f4f45135a5e6, type: 2}

@@ -3052,6 +3052,7 @@ GameObject:
   - component: {fileID: 6041343297057316746}
   - component: {fileID: 8519690390699443421}
   - component: {fileID: 1117872589916295367}
+  - component: {fileID: 3815527294876807585}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3160,4 +3161,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8519690390699443421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3815527294876807585}
+        m_TargetAssemblyTypeName: GoToSceneButton, Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3815527294876807585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793272460355994138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5e46d9b2eb223478e2d91f7c40bde2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneIdx: 2
