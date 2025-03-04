@@ -4256,6 +4256,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 819092093648127146, guid: 3dcad8b03665e6246870ae1dce1caec9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleCollapsing
+      objectReference: {fileID: 0}
+    - target: {fileID: 819092093648127146, guid: 3dcad8b03665e6246870ae1dce1caec9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CollapsingToggleButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2180460512651302853, guid: 3dcad8b03665e6246870ae1dce1caec9,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4400,6 +4410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849417833930229093, guid: 3dcad8b03665e6246870ae1dce1caec9,
+        type: 3}
+      propertyPath: _collapseMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6940636335251817642, guid: 3dcad8b03665e6246870ae1dce1caec9,
         type: 3}

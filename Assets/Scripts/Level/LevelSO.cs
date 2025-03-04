@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelSO", menuName = "LevelSO", order = 0)]
-public class LevelSO : ScriptableObject
+[CreateAssetMenu(fileName = "LevelSO", menuName = "Level/LevelSO")]
+public class LevelSO : ScriptableObject 
 {
     public int LevelNumber;
     public int FlowerCount;
