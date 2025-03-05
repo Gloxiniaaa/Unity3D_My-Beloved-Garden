@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 131510187}
   - component: {fileID: 131510186}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SelectedLevelTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13129,7 +13129,7 @@ GameObject:
   - component: {fileID: 818710575}
   - component: {fileID: 818710576}
   m_Layer: 5
-  m_Name: LevelBtn
+  m_Name: LevelSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13267,6 +13267,7 @@ MonoBehaviour:
     type: 3}
   _levelSceneManagerSO: {fileID: 11400000, guid: 3bec0fed6ac3eab458c4d1de810fe2db,
     type: 2}
+  _selectedLevelText: {fileID: 131510186}
 --- !u!114 &818710576
 MonoBehaviour:
   m_ObjectHideFlags: 0

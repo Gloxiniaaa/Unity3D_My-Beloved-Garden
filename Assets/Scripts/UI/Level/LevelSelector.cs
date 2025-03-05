@@ -1,10 +1,12 @@
+using TMPro;
 using UnityEngine;
 
-public class LevelButtonGenerator : MonoBehaviour
+public class LevelSelector : MonoBehaviour
 {
     [SerializeField] private Transform _container;
     [SerializeField] private LevelButton _levelButtonPrefab;
     [SerializeField] private LevelSceneManagerSO _levelSceneManagerSO;
+    [SerializeField] private TextMeshProUGUI _selectedLevelText;
 
     void OnEnable()
     {
@@ -13,18 +15,19 @@ public class LevelButtonGenerator : MonoBehaviour
 
     private void SetSelectedLevel(int levelIndex)
     {
+        _selectedLevelText.text = levelIndex.ToString();
         _levelSceneManagerSO.SelectLevel(levelIndex);
     }
 
     void Start()
     {
-        PopulateLevels();
+        PopulateLevels(_levelSceneManagerSO.MaxUnlockedLevel);
+        SetSelectedLevel(_levelSceneManagerSO.MaxUnlockedLevel);
     }
 
-    void PopulateLevels()
+    void PopulateLevels(int numberOfLevels)
     {
-
-        for (int i = 0; i <= _levelSceneManagerSO.MaxUnlockedLevel; i++)
+        for (int i = 0; i <= numberOfLevels; i++)
         {
             LevelButton newButton = Instantiate(_levelButtonPrefab, _container);
             newButton.Setup(i);
