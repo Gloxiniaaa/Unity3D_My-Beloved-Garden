@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class GoToSceneButton : MonoBehaviour
 {
-    [SerializeField] private int _sceneIdx;
-    
+    [SerializeField] private SceneType _sceneType;
+
     public void GoToScene()
     {
-        SceneManager.LoadScene(_sceneIdx);
+        SceneManager.LoadSceneAsync((int)_sceneType);
     }
 }

@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e46d9b2eb223478e2d91f7c40bde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneIdx: 2
+  _sceneType: 2
 --- !u!1001 &6490559762550733350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5e46d9b2eb223478e2d91f7c40bde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneIdx: 1
+  _sceneType: 1
 --- !u!224 &3475908343526323182 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7651599892031490504, guid: f32db3b224459ff418b2c44c360e35f6,

@@ -4,12 +4,14 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
+
 [CreateAssetMenu(fileName = "LevelSceneManagerSO", menuName = "Level/LevelSceneManagerSO")]
 public class LevelSceneManagerSO : ScriptableObject
 {
     private int _currentLevelIndex;
     public int MaxUnlockedLevel { get; private set; }
     private AsyncOperationHandle<SceneInstance> _loadedScene;
+    private bool _previousScene = false;
     [SerializeField] private LevelDatabaseSO _levelDatabaseSO;
 
     [Header("Listen to:")]
@@ -21,6 +23,7 @@ public class LevelSceneManagerSO : ScriptableObject
     {
         _currentLevelIndex = 0;
         MaxUnlockedLevel = 0;
+        _previousScene = false;
     }
 
     private void OnEnable()
@@ -42,17 +45,53 @@ public class LevelSceneManagerSO : ScriptableObject
 
     public void LoadLevel()
     {
-        if (_loadedScene.IsValid())
-            Addressables.UnloadSceneAsync(_loadedScene);
+        Debug.Log($"_previousScene: {_previousScene}");
 
-        LevelSO LevelToLoad = GetLevelSO(_currentLevelIndex);
-        if (LevelToLoad == null)
+        if (_previousScene)
         {
-            SceneManager.LoadScene((int)SceneType.HOME_SCENE);
+            Addressables.UnloadSceneAsync(_loadedScene).Completed += handle =>
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    Debug.Log("Scene Unloaded Successfully");
+                }
+                else
+                {
+                    Debug.LogError("Scene Unload Failed: " + handle.OperationException);
+                }
+
+                LoadNextLevel();
+            };
         }
         else
         {
+            LoadNextLevel();
+        }
+    }
+
+    private void LoadNextLevel()
+    {
+        LevelSO LevelToLoad = GetLevelSO(_currentLevelIndex);
+
+        if (LevelToLoad == null)
+        {
+            SceneManager.LoadSceneAsync((int)SceneType.HOME_SCENE);
+        }
+        else
+        {
+            _previousScene = true;
             _loadedScene = Addressables.LoadSceneAsync(LevelToLoad.SceneAddress, LoadSceneMode.Additive);
+            _loadedScene.Completed += handle =>
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    Debug.Log("Scene Loaded Successfully");
+                }
+                else
+                {
+                    Debug.LogError("Scene Load Failed: " + handle.OperationException);
+                }
+            };
         }
     }
 
