@@ -3053,7 +3053,7 @@ GameObject:
   - component: {fileID: 6041343297057316746}
   - component: {fileID: 8519690390699443421}
   - component: {fileID: 1117872589916295367}
-  - component: {fileID: 3815527294876807585}
+  - component: {fileID: 4297779088318690182}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3163,9 +3163,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3815527294876807585}
-        m_TargetAssemblyTypeName: GoToSceneButton, Assembly-CSharp
-        m_MethodName: GoToScene
+      - m_Target: {fileID: 4297779088318690182}
+        m_TargetAssemblyTypeName: GoToNextLevel, Assembly-CSharp
+        m_MethodName: ToNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3175,7 +3175,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3815527294876807585
+--- !u!114 &4297779088318690182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3184,7 +3184,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8793272460355994138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5e46d9b2eb223478e2d91f7c40bde2, type: 3}
+  m_Script: {fileID: 11500000, guid: e34d36eecf3eed94a84c1bb24ab4c842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneIdx: 2
+  _toNextLevelChannel: {fileID: 11400000, guid: b58db39e4f6977543b3e31e8cc337e92,
+    type: 2}

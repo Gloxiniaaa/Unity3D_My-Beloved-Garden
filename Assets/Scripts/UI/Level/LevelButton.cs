@@ -6,13 +6,11 @@ public class LevelButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _levelText;
     private int _levelNumber;
-    private LevelSO _levelSetting;
     public static event Action<int> OnLevelSelected;
 
-    public void Setup(LevelSO setting)
+    public void Setup(int levelIndex)
     {
-        _levelSetting = setting;
-        _levelNumber = setting.LevelNumber;
+        _levelNumber = levelIndex;
         _levelText.text = _levelNumber.ToString();
     }
 

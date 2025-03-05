@@ -4,16 +4,16 @@ public class LevelButtonGenerator : MonoBehaviour
 {
     [SerializeField] private Transform _container;
     [SerializeField] private LevelButton _levelButtonPrefab;
-    [SerializeField] private LevelDatabaseSO _levelDatabase;
+    [SerializeField] private LevelSceneManagerSO _levelSceneManagerSO;
 
     void OnEnable()
     {
         LevelButton.OnLevelSelected += SetSelectedLevel;
     }
 
-    private void SetSelectedLevel(int leveNumber)
+    private void SetSelectedLevel(int levelIndex)
     {
-        _levelDatabase.SelectedLevelId = leveNumber;
+        _levelSceneManagerSO.SelectLevel(levelIndex);
     }
 
     void Start()
@@ -23,10 +23,11 @@ public class LevelButtonGenerator : MonoBehaviour
 
     void PopulateLevels()
     {
-        foreach (LevelSO setting in _levelDatabase.Levels)
+
+        for (int i = 0; i <= _levelSceneManagerSO.MaxUnlockedLevel; i++)
         {
             LevelButton newButton = Instantiate(_levelButtonPrefab, _container);
-            newButton.Setup(setting);
+            newButton.Setup(i);
         }
     }
 
