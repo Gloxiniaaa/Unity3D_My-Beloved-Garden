@@ -120,10 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7213d7f873daed4d8f2ae6e2937fad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flowerCounterSO: {fileID: 11400000, guid: 166aaa38f91e8e34387bb9130c13a0be, type: 2}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
     type: 2}
-  _countLandSlotsChannel: {fileID: 11400000, guid: 34c535793783d5d468f6303c895bd08f,
-    type: 2}
-  _onLandSlotPlantedChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
-    type: 2}
-  _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}

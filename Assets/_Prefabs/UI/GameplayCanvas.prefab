@@ -723,6 +723,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8912404376804539177}
     m_Modifications:
+    - target: {fileID: 2561727806564365273, guid: ca568707cde70a64bb8d31de26d3c599,
+        type: 3}
+      propertyPath: _bindLandslotToUI
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cf198d5f939d034e94096e84d2c65e6,
+        type: 2}
     - target: {fileID: 2854094535859557668, guid: ca568707cde70a64bb8d31de26d3c599,
         type: 3}
       propertyPath: m_Name

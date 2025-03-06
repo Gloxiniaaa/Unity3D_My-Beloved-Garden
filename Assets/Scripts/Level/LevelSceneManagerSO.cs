@@ -106,6 +106,11 @@ public class LevelSceneManagerSO : ScriptableObject
         return _levelDatabaseSO.GetLevel(levelIndex);
     }
 
+    public LevelSO GetCurrentLevelSO()
+    {
+        return _levelDatabaseSO.GetLevel(_currentLevelIndex);
+    }
+
     private void UnlockNextLevel(bool win)
     {
         if (!win || _currentLevelIndex < MaxUnlockedLevel)

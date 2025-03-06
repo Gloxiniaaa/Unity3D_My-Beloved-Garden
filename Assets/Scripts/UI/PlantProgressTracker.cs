@@ -3,40 +3,22 @@ using UnityEngine;
 
 public class FlowerCounter : MonoBehaviour
 {
-    private int _availableLandSlots;
     [SerializeField] private TextMeshProUGUI _flowerCounterText;
-    [SerializeField] private IntEventChannelSO _countLandSlotsChannel;
-    [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
-    [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
-    private void OnEnable()
+    [Header("Listen to:")]
+    [SerializeField] private IntEventChannelSO _bindLandslotToUI;
+
+    void OnEnable()
     {
-        _countLandSlotsChannel.OnEventRaised += CountLandSlots;
-        _onUndoFlowerBloom.OnEventRaised += AddAvailableLandSlot;
-        _onLandSlotPlantedChannel.OnEventRaised += RemoveAvailableLandSlot;
+        _bindLandslotToUI.OnEventRaised += Updatext;
     }
 
-    private void AddAvailableLandSlot()
+    private void Updatext(int availableLandSlots)
     {
-        _availableLandSlots++;
-        _flowerCounterText.text = _availableLandSlots.ToString();
+        _flowerCounterText.text = availableLandSlots.ToString();
     }
 
-    private void RemoveAvailableLandSlot(Vector3 arg0)
+    void OnDisable()
     {
-        _availableLandSlots--;
-        _flowerCounterText.text = _availableLandSlots.ToString();
-    }
-
-    private void CountLandSlots(int value)
-    {
-        _availableLandSlots = value;
-        _flowerCounterText.text =  _availableLandSlots.ToString();
-    }
-
-    private void OnDisable()
-    {
-        _countLandSlotsChannel.OnEventRaised -= CountLandSlots;
-        _onUndoFlowerBloom.OnEventRaised -= AddAvailableLandSlot;
-        _onLandSlotPlantedChannel.OnEventRaised -= RemoveAvailableLandSlot;
+        _bindLandslotToUI.OnEventRaised -= Updatext;
     }
 }
