@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CollapsibleButton : MonoBehaviour
+public class CollapsibleUI : MonoBehaviour
 {
     private readonly float _duration = 0.2f;
     private bool _isCollapsed;

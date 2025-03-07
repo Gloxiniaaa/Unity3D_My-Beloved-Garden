@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class LandLord : MonoBehaviour
+public class LandSlotsCounter : MonoBehaviour
 {
     [Header("Broadcast on:")]
     [SerializeField] private IntEventChannelSO _countLandSlotsChannel;

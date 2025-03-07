@@ -8,13 +8,13 @@ public class EndGameUI : MonoBehaviour
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
     [SerializeField] private VoidEventChannelSO _onStepOnFlower;
 
-    private CollapsibleButton _winCollapsible;
-    private CollapsibleButton _loseCollapsible;
+    private CollapsibleUI _winCollapsible;
+    private CollapsibleUI _loseCollapsible;
 
     private void Awake()
     {
-        _winCollapsible = _winGamePannel.AddComponent<CollapsibleButton>();
-        _loseCollapsible = _loseGamePannel.AddComponent<CollapsibleButton>();
+        _winCollapsible = _winGamePannel.AddComponent<CollapsibleUI>();
+        _loseCollapsible = _loseGamePannel.AddComponent<CollapsibleUI>();
     }
 
     private void OnEnable()

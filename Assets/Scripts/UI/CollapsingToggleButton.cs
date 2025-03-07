@@ -4,22 +4,22 @@ using UnityEngine;
 public class CollapsingToggleButton : MonoBehaviour
 {
     [SerializeField] private CollapseMode _collapseMode;
-    private CollapsibleButton[] _collapsibleButtons;
+    private CollapsibleUI[] _collapsibleButtons;
 
     private void Awake()
     {
         int amount = _collapseMode == CollapseMode.FIRST_CHILD ? 1 : transform.childCount;
-        _collapsibleButtons = new CollapsibleButton[amount];
+        _collapsibleButtons = new CollapsibleUI[amount];
         for (int i = 0; i < amount; i++)
         {
-            CollapsibleButton btn = transform.GetChild(i).AddComponent<CollapsibleButton>();
+            CollapsibleUI btn = transform.GetChild(i).AddComponent<CollapsibleUI>();
             _collapsibleButtons[i] = btn;
         }
     }
 
     public void ToggleCollapsing()
     {
-        foreach (CollapsibleButton collapsibleButton in _collapsibleButtons)
+        foreach (CollapsibleUI collapsibleButton in _collapsibleButtons)
         {
             collapsibleButton.Toggle();
         }
