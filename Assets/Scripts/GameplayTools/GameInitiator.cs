@@ -36,12 +36,12 @@ public class GameInitiator : MonoBehaviour
 
         _levelSceneManagerSO.LoadLevel();
 
-        yield return new WaitForSeconds(1f);
-        Instantiate(_flowerCounter).CountLandSlots(_levelSceneManagerSO.GetCurrentLevelSO().FlowerCount);
+        yield return new WaitForSeconds(0.5f);
+        LevelSO currentLevelSO = _levelSceneManagerSO.GetCurrentLevelSO();
+        Instantiate(_flowerCounter).CountLandSlots(currentLevelSO.FlowerCount);
         
         yield return null;
-        // the last thing to do is to initialize the player
-        Instantiate(_playerController);
+        Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
     }
 
 }

@@ -170,7 +170,7 @@ MonoBehaviour:
     type: 3}
   _menuCanvas: {fileID: 7175542979894249355, guid: 3dcad8b03665e6246870ae1dce1caec9,
     type: 3}
-  _endGameCanvas: {fileID: 5141594948144637669, guid: 1a2d9705bb1a9c7498fbb2d11428446c,
+  _endGameCanvas: {fileID: 6116629664828245927, guid: 017ce227284468544bbf5a3d2eabbf0e,
     type: 3}
   _eventSystem: {fileID: 5657003095802316621, guid: ae5826c1e61dac6448c8fb5cf09f80be,
     type: 3}
@@ -179,7 +179,6 @@ MonoBehaviour:
     type: 3}
   _flowerSpawner: {fileID: 4166922445523690440, guid: e70fd139cc8d85f4e8af38eea7c6a369,
     type: 3}
-  _flowerCounterSO: {fileID: 0}
   _flowerCounter: {fileID: 2048462986204261412, guid: 6a7fac85ca96b6e4fa11832de43cd3b5,
     type: 3}
   _levelSceneManagerSO: {fileID: 11400000, guid: 3bec0fed6ac3eab458c4d1de810fe2db,

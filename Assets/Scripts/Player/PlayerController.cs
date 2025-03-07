@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Listen to")]
     [SerializeField] private InputReaderSO _inputReader;
     [SerializeField] private VoidEventChannelSO _undoMoveChannel;
     [SerializeField] private VoidEventChannelSO _useShovelChannel;
     [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
+    [SerializeField] private BoolEventChannelSO _onCompletionChannel;
     [SerializeField] private GameObject _shovel;
 
     [SerializeField] private Player _player;
@@ -23,7 +25,13 @@ public class PlayerController : MonoBehaviour
         _inputReader.Move += Move;
         _undoMoveChannel.OnEventRaised += UndoMove;
         _useShovelChannel.OnEventRaised += ToggleShoveling;
+        _onCompletionChannel.OnEventRaised += ControlEndGameAnimation;
+    }
 
+    private void ControlEndGameAnimation(bool win)
+    {
+        UnBindInput();
+        _player.EnterEndGameState(win);
     }
 
     private void ToggleShoveling()
@@ -96,10 +104,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void UnBindInput()
     {
         _inputReader.Move -= Move;
         _undoMoveChannel.OnEventRaised -= UndoMove;
         _useShovelChannel.OnEventRaised -= ToggleShoveling;
+    }
+
+    private void OnDisable()
+    {
+        UnBindInput();
+        _onCompletionChannel.OnEventRaised -= ControlEndGameAnimation;
     }
 }

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private MoveState _move;
     private ReverseMoveState _reverseMove;
     private UseShovelState _useShovel;
+    private EndGameState _endGameState;
+
     public IState CurrentState { get; private set; }
 
     [Header("SFX")]
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
         _move = new(this, animator);
         _reverseMove = new(this, animator);
         _useShovel = new(this, animator);
-
+        _endGameState = new(this, animator);
     }
 
     void OnEnable()
@@ -69,6 +71,13 @@ public class Player : MonoBehaviour
         SwitchState(_useShovel);
     }
 
+    public void EnterEndGameState(bool win)
+    {
+        _endGameState.SetType(win);
+        CurrentState = _endGameState;
+        CurrentState.OnEnter();
+    }
+
     // private void Update() => CurrentState.Tick();
 
     private void OnTriggerEnter(Collider other)
@@ -76,7 +85,7 @@ public class Player : MonoBehaviour
         Debug.Log("Ayoo");
         if (other.CompareTag(Constant.CHECK_POINT_TAG))
         {
-            Debug.Log("Ayyo you've reached check point mate");   
+            Debug.Log("Ayyo you've reached check point mate");
             _onReachCheckPoint.RaiseEvent();
         }
     }

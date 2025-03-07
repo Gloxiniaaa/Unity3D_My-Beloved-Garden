@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FlowerCounter : MonoBehaviour
@@ -10,6 +11,7 @@ public class FlowerCounter : MonoBehaviour
     [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
     [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
     [SerializeField] private VoidEventChannelSO _onReachCheckPoint;
+    [SerializeField] private VoidEventChannelSO _onStepOnFlower;
 
 
     [Header("Broadcast on:")]
@@ -24,6 +26,12 @@ public class FlowerCounter : MonoBehaviour
         _onUndoFlowerBloom.OnEventRaised += AddAvailableLandSlot;
         _onLandSlotPlantedChannel.OnEventRaised += RemoveAvailableLandSlot;
         _onReachCheckPoint.OnEventRaised += CheckForCompletion;
+        _onStepOnFlower.OnEventRaised += OnStepOnFlower;
+    }
+
+    private void OnStepOnFlower()
+    {
+        _onCompletionChannel.RaiseEvent(false);
     }
 
     private void CheckForCompletion()
@@ -58,5 +66,6 @@ public class FlowerCounter : MonoBehaviour
         _onUndoFlowerBloom.OnEventRaised -= AddAvailableLandSlot;
         _onLandSlotPlantedChannel.OnEventRaised -= RemoveAvailableLandSlot;
         _onReachCheckPoint.OnEventRaised -= CheckForCompletion;
+        _onStepOnFlower.OnEventRaised -= OnStepOnFlower;
     }
 }

@@ -50,6 +50,7 @@ MonoBehaviour:
     type: 2}
   _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}
   _onReachCheckPoint: {fileID: 11400000, guid: 240e022fdd7ced043ac2e9d875b2c35e, type: 2}
+  _onStepOnFlower: {fileID: 11400000, guid: 6d82c2a4cd7a4b345a0f1294a4e20687, type: 2}
   _bindLandslotToUI: {fileID: 11400000, guid: 0cf198d5f939d034e94096e84d2c65e6, type: 2}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
     type: 2}
