@@ -14,7 +14,7 @@ public class GameInitiator : MonoBehaviour
     [SerializeField] private AudioPlayer _bgmPlayer;
     [SerializeField] private AudioPlayer _sfxPlayer;
     [SerializeField] private FlowerSpawner _flowerSpawner;
-    [SerializeField] private FlowerCounterSO _flowerCounterSO;
+    [SerializeField] private FlowerCounter _flowerCounter;
     [SerializeField] private LevelSceneManagerSO _levelSceneManagerSO;
 
     [Header("Player Preferences")]
@@ -37,8 +37,8 @@ public class GameInitiator : MonoBehaviour
         _levelSceneManagerSO.LoadLevel();
 
         yield return new WaitForSeconds(1f);
-        _flowerCounterSO.CountLandSlots(_levelSceneManagerSO.GetCurrentLevelSO().FlowerCount);
-
+        Instantiate(_flowerCounter).CountLandSlots(_levelSceneManagerSO.GetCurrentLevelSO().FlowerCount);
+        
         yield return null;
         // the last thing to do is to initialize the player
         Instantiate(_playerController);

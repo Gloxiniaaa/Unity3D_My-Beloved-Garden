@@ -624,6 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
+        type: 3}
       propertyPath: swayAngle
       value: 1.11
       objectReference: {fileID: 0}
@@ -1115,6 +1120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760580799989440, guid: b170f3beac4273148ade7130d556a901, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
@@ -12425,6 +12435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
+        type: 3}
       propertyPath: swayAngle
       value: 1.02
       objectReference: {fileID: 0}
@@ -12794,6 +12809,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1633541107}
     m_Modifications:
+    - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
         type: 3}
       propertyPath: swayAngle
@@ -14139,6 +14159,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
+        type: 3}
       propertyPath: swayAngle
       value: 0.4
       objectReference: {fileID: 0}
@@ -14489,6 +14514,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1633541107}
     m_Modifications:
+    - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7320002456880815712, guid: 5437f2ab14be6694ab514687f91ecaca,
         type: 3}
       propertyPath: swayAngle
@@ -15659,6 +15689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
+        type: 3}
       propertyPath: swayAngle
       value: 0.89
       objectReference: {fileID: 0}
@@ -15809,6 +15844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4779358099310956, guid: babde3f3ef45f4048bbca9fdd43e2974, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1711025342842971766, guid: babde3f3ef45f4048bbca9fdd43e2974,
@@ -17198,6 +17238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
+        type: 3}
       propertyPath: swayAngle
       value: 1.11
       objectReference: {fileID: 0}
@@ -17961,6 +18006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760580799989440, guid: b170f3beac4273148ade7130d556a901, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 572798236072821870, guid: b170f3beac4273148ade7130d556a901,

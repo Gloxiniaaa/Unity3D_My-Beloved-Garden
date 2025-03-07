@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Vec3EventChannelSO _onLandSlotPlantedChannel;
     [SerializeField] private AudioEventChannelSO _playSfxChannel;
     [SerializeField] private VoidEventChannelSO _onStepOnFlower;
+    [SerializeField] private VoidEventChannelSO _onReachCheckPoint;
 
     private void Awake()
     {
@@ -69,6 +70,16 @@ public class Player : MonoBehaviour
     }
 
     // private void Update() => CurrentState.Tick();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Ayoo");
+        if (other.CompareTag(Constant.CHECK_POINT_TAG))
+        {
+            Debug.Log("Ayyo you've reached check point mate");   
+            _onReachCheckPoint.RaiseEvent();
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {

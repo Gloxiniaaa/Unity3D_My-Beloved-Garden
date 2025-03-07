@@ -90,11 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flowerCounterText: {fileID: 3018486997714522604}
-  _countLandSlotsChannel: {fileID: 11400000, guid: 34c535793783d5d468f6303c895bd08f,
-    type: 2}
-  _onLandSlotPlantedChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
-    type: 2}
-  _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}
+  _bindLandslotToUI: {fileID: 11400000, guid: 0cf198d5f939d034e94096e84d2c65e6, type: 2}
 --- !u!1 &3835104875158001332
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 18
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd2e6ef7ec9afde4a943b039426cff26, type: 2}
   m_sharedMaterial: {fileID: 7326705805084495250, guid: dd2e6ef7ec9afde4a943b039426cff26,

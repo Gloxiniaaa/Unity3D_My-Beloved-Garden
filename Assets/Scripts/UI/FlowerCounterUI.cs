@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class FlowerCounter : MonoBehaviour
+public class FlowerCounterUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _flowerCounterText;
     [Header("Listen to:")]

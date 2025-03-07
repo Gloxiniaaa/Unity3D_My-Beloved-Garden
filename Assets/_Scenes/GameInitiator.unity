@@ -179,7 +179,9 @@ MonoBehaviour:
     type: 3}
   _flowerSpawner: {fileID: 4166922445523690440, guid: e70fd139cc8d85f4e8af38eea7c6a369,
     type: 3}
-  _flowerCounterSO: {fileID: 11400000, guid: 166aaa38f91e8e34387bb9130c13a0be, type: 2}
+  _flowerCounterSO: {fileID: 0}
+  _flowerCounter: {fileID: 2048462986204261412, guid: 6a7fac85ca96b6e4fa11832de43cd3b5,
+    type: 3}
   _levelSceneManagerSO: {fileID: 11400000, guid: 3bec0fed6ac3eab458c4d1de810fe2db,
     type: 2}
   _playerController: {fileID: 2015562761541300361, guid: f3576d8912d28b041afa5eb3bdc2f6f6,
