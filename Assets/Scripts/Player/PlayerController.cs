@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _useShovelChannel;
     [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
-    [SerializeField] private GameObject _shovel;
-
+    [Space]
     [SerializeField] private Player _player;
+    [SerializeField] private Shovel _shovel;
     private CommandInvoker _playerCommandInvoker;
     private bool _isShoveling = false;
 
@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.Move += Move;
-        _undoMoveChannel.OnEventRaised += UndoMove;
-        _useShovelChannel.OnEventRaised += ToggleShoveling;
         _onCompletionChannel.OnEventRaised += ControlEndGameAnimation;
     }
 
@@ -36,27 +34,32 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleShoveling()
     {
-        _isShoveling = !_isShoveling;
         if (_isShoveling)
         {
-            OnStartShoveling();
+            OnEndShoveling();
         }
         else
         {
-            OnEndShoveling();
+            OnStartShoveling();
         }
     }
 
     private void OnStartShoveling()
     {
-        _shovel.SetActive(true);
+        if (_isShoveling)
+            return;
+        _isShoveling = true;
+        _shovel.TurnOnShovel();
         _inputReader.Move -= Move;
         _inputReader.Move += UseShovel;
     }
 
     private void OnEndShoveling()
     {
-        _shovel.SetActive(false);
+        if (!_isShoveling)
+            return;
+        _isShoveling = false;
+        _shovel.TurnOffShovel();
         _inputReader.Move -= UseShovel;
         _inputReader.Move += Move;
     }
@@ -64,9 +67,9 @@ public class PlayerController : MonoBehaviour
     private void UseShovel(Vector2 input)
     {
         Vector3 direction = Helper.InputTo3dAxisDirection(input);
-
         if (_player.CanMove())
         {
+            _shovel.UseShovel(() => OnEndShoveling());
             if (Physics.Raycast(_player.transform.position, direction, Constant.GRID_SIZE, Constant.FLOWER_LAYER_MASK))
             {
                 _playerCommandInvoker.DoAndSaveCommand(new ShovelFlowerCommand(_player, direction, _spawnFlowerChannel, _player.transform.position + direction));
@@ -102,6 +105,18 @@ public class PlayerController : MonoBehaviour
                 _playerCommandInvoker.DoAndSaveCommand(new PlayerMoveCommand(_player, direction));
             }
         }
+    }
+
+
+    public void SetupShovelTool(Shovel shovelPrefab)
+    {
+        _shovel = Instantiate(shovelPrefab, _player.transform);
+        _useShovelChannel.OnEventRaised += ToggleShoveling;
+    }
+
+    public void SetupUndoTool()
+    {
+        _undoMoveChannel.OnEventRaised += UndoMove;
     }
 
     private void UnBindInput()

@@ -27,21 +27,24 @@ public class GameInitiator : MonoBehaviour
         Instantiate(_gamePlayCanvas);
         Instantiate(_menuCanvas);
         Instantiate(_endGameCanvas);
-        yield return null;
 
         // intialize serrcices
         Instantiate(_sfxPlayer);
         Instantiate(_flowerSpawner);
-        yield return null;
 
         _levelSceneManagerSO.LoadLevel();
+        LevelSO currentLevelSO = _levelSceneManagerSO.GetCurrentLevelSO();
 
         yield return new WaitForSeconds(0.5f);
-        LevelSO currentLevelSO = _levelSceneManagerSO.GetCurrentLevelSO();
         Instantiate(_flowerCounter).CountLandSlots(currentLevelSO.FlowerCount);
-        
+
+        _playerController = Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
+
         yield return null;
-        Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
+        foreach (GameplayToolSO gameplayToolSO in currentLevelSO.GameplayToolSOs)
+        {
+            gameplayToolSO.Setup(_playerController);
+        }
     }
 
 }

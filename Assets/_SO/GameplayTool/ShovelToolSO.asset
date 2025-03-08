@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19475b0039445c74da34aafface43885, type: 3}
+  m_Name: ShovelToolSO
+  m_EditorClassIdentifier: 
+  UIPrefab: {fileID: 459943081928061368, guid: 82843ec60ea4f4140938bef7f657c925, type: 3}
+  _shovelPrefab: {fileID: 6006077222385086205, guid: d5cb6a395f077e64cbef027c3215fadb,
+    type: 3}
