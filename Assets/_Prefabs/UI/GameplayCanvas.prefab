@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 4410211669703276903}
   - component: {fileID: 226064910186783449}
   - component: {fileID: 1708226103558597639}
+  - component: {fileID: 8225718448418371342}
   m_Layer: 5
   m_Name: GameplayCanvas
   m_TagString: Untagged
@@ -307,6 +308,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8225718448418371342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335154060680896941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabb09a1e0747664fa9a5ef4934c3f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 8578061118282748123}
 --- !u!1 &6792180339896685263
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UndoBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 1261350326004864105, guid: daf81508d0570294d9324f6da72c7fc5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7572452620401798587, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
       propertyPath: m_text
@@ -418,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
@@ -428,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
@@ -478,12 +497,12 @@ PrefabInstance:
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 435
       objectReference: {fileID: 0}
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 8636750702410065832, guid: daf81508d0570294d9324f6da72c7fc5,
         type: 3}
@@ -524,6 +543,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShovelBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 459943081928061368, guid: 82843ec60ea4f4140938bef7f657c925,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
       propertyPath: m_Pivot.x
@@ -542,7 +566,7 @@ PrefabInstance:
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
@@ -552,7 +576,7 @@ PrefabInstance:
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
@@ -602,12 +626,12 @@ PrefabInstance:
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 7411673178473475524, guid: 82843ec60ea4f4140938bef7f657c925,
         type: 3}

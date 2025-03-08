@@ -5,9 +5,9 @@ public class GameInitiator : MonoBehaviour
 {
     // serves as single entry point for the game
     [Header("UI")]
-    [SerializeField] private Canvas _gamePlayCanvas;
-    [SerializeField] private Canvas _menuCanvas;
-    [SerializeField] private Canvas _endGameCanvas;
+    [SerializeField] private SetupGameplayToolsUI _gamePlayCanvas;
+    [SerializeField] private GameObject _menuCanvas;
+    [SerializeField] private GameObject _endGameCanvas;
     [SerializeField] private GameObject _eventSystem;
 
     [Header("Services")]
@@ -24,7 +24,7 @@ public class GameInitiator : MonoBehaviour
     {
         // initialize game UI
         Instantiate(_eventSystem);
-        Instantiate(_gamePlayCanvas);
+        SetupGameplayToolsUI gameplayToolsUI = Instantiate(_gamePlayCanvas);
         Instantiate(_menuCanvas);
         Instantiate(_endGameCanvas);
 
@@ -38,12 +38,13 @@ public class GameInitiator : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Instantiate(_flowerCounter).CountLandSlots(currentLevelSO.FlowerCount);
 
-        _playerController = Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
+        PlayerController playerController = Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
 
         yield return null;
         foreach (GameplayToolSO gameplayToolSO in currentLevelSO.GameplayToolSOs)
         {
-            gameplayToolSO.Setup(_playerController);
+            gameplayToolsUI.SpawnUI(gameplayToolSO.UIPrefab);
+            gameplayToolSO.Setup(playerController);
         }
     }
 

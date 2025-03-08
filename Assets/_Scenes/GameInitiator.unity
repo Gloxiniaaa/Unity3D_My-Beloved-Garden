@@ -166,11 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f37b76c6404434fae1e33ae943c51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gamePlayCanvas: {fileID: 4410211669703276903, guid: b045667e48f605c41ac06c1605c65b5a,
+  _gamePlayCanvas: {fileID: 8225718448418371342, guid: b045667e48f605c41ac06c1605c65b5a,
     type: 3}
-  _menuCanvas: {fileID: 7175542979894249355, guid: 3dcad8b03665e6246870ae1dce1caec9,
+  _menuCanvas: {fileID: 5848172950689662167, guid: 3dcad8b03665e6246870ae1dce1caec9,
     type: 3}
-  _endGameCanvas: {fileID: 6116629664828245927, guid: 017ce227284468544bbf5a3d2eabbf0e,
+  _endGameCanvas: {fileID: 6097597137382961113, guid: 017ce227284468544bbf5a3d2eabbf0e,
     type: 3}
   _eventSystem: {fileID: 5657003095802316621, guid: ae5826c1e61dac6448c8fb5cf09f80be,
     type: 3}
