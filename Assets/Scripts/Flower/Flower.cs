@@ -8,12 +8,30 @@ public class Flower : MonoBehaviour, IPooledObject<Flower>
 {
     private Collider _collider;
     private IPool<Flower> _flowerPool;
+    [Header("Broadcast on:")]
     [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
+    [SerializeField] private VoidEventChannelSO _onStepOnFlower;
+
 
     private void Awake()
     {
         transform.localScale = Vector3.zero;
         _collider = GetComponent<BoxCollider>();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constant.PLAYER_TAG))
+        {
+            Debug.Log("You stepped on a flower!!!");
+            _onStepOnFlower.RaiseEvent();
+            transform.position += Vector3.down * 0.2f;
+            transform.DOKill();
+        }
+        if (other.CompareTag(Constant.REVERSE_PLAYER_TAG))
+        {
+            ReverseBloom();
+        }
     }
 
     [ContextMenu("Bloom")]

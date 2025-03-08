@@ -40,7 +40,7 @@ public class EndGameState : IState
     {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         Vector3 deltaRotation = targetRotation.eulerAngles - _host.transform.rotation.eulerAngles;
-        // _host.transform.DOKill();
+        _host.transform.DOKill();
         return _host.transform.DOBlendableRotateBy(deltaRotation, _moveDuration)
            .SetEase(Ease.OutQuad)
            .SetUpdate(UpdateType.Normal, true);

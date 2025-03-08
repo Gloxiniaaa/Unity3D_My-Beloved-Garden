@@ -22,9 +22,10 @@ public class ReverseMoveState : IState
 
     public void OnEnter()
     {
+        _host.tag = Constant.REVERSE_PLAYER_TAG;
         _animator.SetBool(_boolMoveAnimHash, true);
         
-        ReverseFlowerBloom();
+        // ReverseFlowerBloom();
         
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(_moveDuration);

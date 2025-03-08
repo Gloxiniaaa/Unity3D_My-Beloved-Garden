@@ -11,7 +11,7 @@ public class MoveState : IState
     private readonly int _boolMoveAnimHash = Animator.StringToHash("isMoving");
     private Tween _currentRotationTween;
     private bool _obstacleDectector => Physics.Raycast(_host.transform.position, _host.TargetDirection, Constant.GRID_SIZE, Constant.OBSTACLE_LAYER_MASK);
-    public event Action OnStepOnFlower;
+    // public event Action OnStepOnFlower;
     
     public MoveState(Player host, Animator animator)
     {
@@ -25,6 +25,7 @@ public class MoveState : IState
 
     public void OnEnter()
     {
+        _host.tag = Constant.PLAYER_TAG;
         _animator.SetBool(_boolMoveAnimHash, true);
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(_moveDuration);
@@ -61,15 +62,15 @@ public class MoveState : IState
 
     public void OnExit()
     {
-        CheckStepOnFlower();
+        // CheckStepOnFlower();
     }
 
-    private void CheckStepOnFlower()
-    {
-        if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, Constant.FLOWER_LAYER_MASK))
-        {
-            OnStepOnFlower?.Invoke();
-            Debug.Log("You stepped on a flower!!!");
-        }
-    }
+    // private void CheckStepOnFlower()
+    // {
+    //     if (Physics.Raycast(_host.transform.position + Vector3.up, Vector3.down, 2f, Constant.FLOWER_LAYER_MASK))
+    //     {
+    //         OnStepOnFlower?.Invoke();
+    //         Debug.Log("You stepped on a flower!!!");
+    //     }
+    // }
 }

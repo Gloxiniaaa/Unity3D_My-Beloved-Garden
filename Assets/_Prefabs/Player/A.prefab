@@ -191,7 +191,6 @@ MonoBehaviour:
   _onLandSlotPlantedChannel: {fileID: 11400000, guid: 30539cf32e1cbbd4d88d02e7f5fd0c79,
     type: 2}
   _playSfxChannel: {fileID: 11400000, guid: 7bc71d1d10866704999f7874adb9f71a, type: 2}
-  _onStepOnFlower: {fileID: 11400000, guid: 6d82c2a4cd7a4b345a0f1294a4e20687, type: 2}
   _onReachCheckPoint: {fileID: 11400000, guid: 240e022fdd7ced043ac2e9d875b2c35e, type: 2}
 --- !u!95 &353359635801321090
 Animator:
@@ -233,7 +232,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 1.2, z: 0.3}
+  m_Size: {x: 0.1, y: 1.2, z: 0.1}
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!54 &7748472232799748355
 Rigidbody:
