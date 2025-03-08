@@ -6,25 +6,19 @@ using UnityEngine.SceneManagement;
 
 
 [CreateAssetMenu(fileName = "LevelSceneManagerSO", menuName = "Level/LevelSceneManagerSO")]
-public class LevelSceneManagerSO : ScriptableObject
+public class LevelSceneManagerSO : DescriptionBaseSO
 {
-    private int _currentLevelIndex;
     public int MaxUnlockedLevel { get; private set; }
     private AsyncOperationHandle<SceneInstance> _loadedScene;
-    private bool _previousScene = false;
+    [SerializeField] private int _currentLevelIndex;
+    [SerializeField] private bool _previousScene = false;
     [SerializeField] private LevelDatabaseSO _levelDatabaseSO;
 
     [Header("Listen to:")]
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
     [SerializeField] private VoidEventChannelSO _toNextLevelChannel;
 
-    [ContextMenu("Reset Value")]
-    private void Reset()
-    {
-        _currentLevelIndex = 0;
-        MaxUnlockedLevel = 0;
-        _previousScene = false;
-    }
+
 
     private void OnEnable()
     {
@@ -126,6 +120,20 @@ public class LevelSceneManagerSO : ScriptableObject
     {
         _onCompletionChannel.OnEventRaised -= UnlockNextLevel;
         _toNextLevelChannel.OnEventRaised -= GotoNextLevel;
+    }
+
+    [ContextMenu("Reset Value")]
+    private void Reset()
+    {
+        _currentLevelIndex = 0;
+        MaxUnlockedLevel = 0;
+        _previousScene = false;
+    }
+
+    [ContextMenu("UnLock All Levels")]
+    private void UnLockAllLevels()
+    {
+        MaxUnlockedLevel = _levelDatabaseSO.GetTotalLevels();
     }
 }
 

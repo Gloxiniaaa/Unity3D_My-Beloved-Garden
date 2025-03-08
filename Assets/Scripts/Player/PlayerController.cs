@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     private CommandInvoker _playerCommandInvoker;
     private bool _isShoveling = false;
-    private Shovel _shovel;
+    [SerializeField] private Shovel _shovel;
     [SerializeField] private Player _player;
 
     [Header("Listen to")]
@@ -108,9 +108,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void SetupShovelTool(Shovel shovelPrefab)
+    public void SetupShovelTool()
     {
-        _shovel = Instantiate(shovelPrefab, _player.transform);
+        _shovel = Instantiate(_shovel, _player.transform);
         _useShovelChannel.OnEventRaised += ToggleShoveling;
     }
 
@@ -137,5 +137,12 @@ public class PlayerController : MonoBehaviour
     {
         UnBindInput();
         _onCompletionChannel.OnEventRaised -= ControlEndGameAnimation;
+    }
+
+    [ContextMenu("UnlockAllTools")]
+    private void UnlockAllTools()
+    {
+        SetupShovelTool();
+        SetupUndoTool();
     }
 }

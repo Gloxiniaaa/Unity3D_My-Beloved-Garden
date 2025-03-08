@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3897a1072a6a0d84caf0d529c09c6f5d, type: 3}
   m_Name: LevelDatabaseSO
   m_EditorClassIdentifier: 
-  SelectedLevelId: 0
-  MaxUnlockedLevel: 0
-  _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
-    type: 2}
   Levels:
   - {fileID: 11400000, guid: 85802f4fd085d974fa10776e8849f87d, type: 2}
   - {fileID: 11400000, guid: 9208246dffcc0034f8d0f4f45135a5e6, type: 2}
   - {fileID: 11400000, guid: 918d3cfa24ab8514cba76df2c5072c3f, type: 2}
+  - {fileID: 11400000, guid: cf1e4faa05581164f978812fc1797cba, type: 2}
+  - {fileID: 11400000, guid: 71bc96605f287eb4d9edbf0dac49cb2f, type: 2}
