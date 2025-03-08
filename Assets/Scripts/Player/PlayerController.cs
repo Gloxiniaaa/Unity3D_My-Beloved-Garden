@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private CommandInvoker _playerCommandInvoker;
+    private bool _isShoveling = false;
+    private Shovel _shovel;
+    [SerializeField] private Player _player;
+
     [Header("Listen to")]
     [SerializeField] private InputReaderSO _inputReader;
     [SerializeField] private VoidEventChannelSO _undoMoveChannel;
     [SerializeField] private VoidEventChannelSO _useShovelChannel;
     [SerializeField] private Vec3EventChannelSO _spawnFlowerChannel;
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
-    [Space]
-    [SerializeField] private Player _player;
-    [SerializeField] private Shovel _shovel;
-    private CommandInvoker _playerCommandInvoker;
-    private bool _isShoveling = false;
 
     private void Awake()
     {
@@ -117,6 +117,13 @@ public class PlayerController : MonoBehaviour
     public void SetupUndoTool()
     {
         _undoMoveChannel.OnEventRaised += UndoMove;
+    }
+
+    public void SetupCharacter(Player prefab, Vector3 spawnPos)
+    {
+        _player = Instantiate(prefab, spawnPos, Quaternion.identity);
+        _player.transform.parent = transform;
+        _player.transform.forward = Vector3.back;
     }
 
     private void UnBindInput()

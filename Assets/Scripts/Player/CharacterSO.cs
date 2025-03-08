@@ -1,11 +1,22 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterSO", menuName = "CharacterSO", order = 0)]
+[CreateAssetMenu(fileName = "CharacterSO", menuName = "Character/CharacterSO")]
 public class CharacterSO : ScriptableObject
 {
     public string CharacterName;
     public Sprite CharacterSprite;
-    public GameObject IdlePrefab;
-    public GameObject InGamePrefab;
+    public Player Prefab;
+    private Player _spawnedInstance;
+
+    public Player SpawnCharacter()
+    {
+        _spawnedInstance = Instantiate(Prefab);
+        return _spawnedInstance;
+    }
+
+    public Player GetCharacter()
+    {
+        return _spawnedInstance;
+    }
     
 }

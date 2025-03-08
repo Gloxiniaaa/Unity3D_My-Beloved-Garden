@@ -19,6 +19,7 @@ public class GameInitiator : MonoBehaviour
 
     [Header("Player Preferences")]
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private CharacterDatabaseSO _characterDatabaseSO;
 
     IEnumerator Start()
     {
@@ -38,7 +39,8 @@ public class GameInitiator : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Instantiate(_flowerCounter).CountLandSlots(currentLevelSO.FlowerCount);
 
-        PlayerController playerController = Instantiate(_playerController, currentLevelSO.PlayerSpawnPosition, Quaternion.identity);
+        PlayerController playerController = Instantiate(_playerController);
+        playerController.SetupCharacter(_characterDatabaseSO.GetSelectedCharacterSO().Prefab, currentLevelSO.PlayerSpawnPosition);
 
         yield return null;
         foreach (GameplayToolSO gameplayToolSO in currentLevelSO.GameplayToolSOs)
@@ -46,6 +48,8 @@ public class GameInitiator : MonoBehaviour
             gameplayToolsUI.SpawnUI(gameplayToolSO.UIPrefab);
             gameplayToolSO.Setup(playerController);
         }
+
+
     }
 
 }

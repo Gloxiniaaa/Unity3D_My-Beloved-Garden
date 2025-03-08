@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -114,5 +115,17 @@ public class Player : MonoBehaviour
         CurrentState?.OnExit();
         CurrentState = newState;
         CurrentState.OnEnter();
+    }
+
+
+    [ContextMenu("DevTool - Setup")]
+    private void DevToolSetup()
+    {
+        Rigidbody rb = this.AddComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        BoxCollider collider = this.AddComponent<BoxCollider>();
+        collider.isTrigger = true;
+        collider.size = new Vector3(0.3f, 1.2f, 0.3f);
     }
 }

@@ -185,6 +185,8 @@ MonoBehaviour:
     type: 2}
   _playerController: {fileID: 2015562761541300361, guid: f3576d8912d28b041afa5eb3bdc2f6f6,
     type: 3}
+  _characterDatabaseSO: {fileID: 11400000, guid: 63f037a2ad5249443b7cbe678d59e077,
+    type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
