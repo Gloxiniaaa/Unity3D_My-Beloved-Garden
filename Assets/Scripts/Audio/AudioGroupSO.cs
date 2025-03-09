@@ -11,4 +11,8 @@ public class AudioGroupSO : ScriptableObject
     {
         return _audioClips[Random.Range(0, _audioClips.Length)];
     }
+    public AudioClip GetClip()
+    {
+        return _audioClips[0];
+    }
 }

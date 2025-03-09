@@ -1,13 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayer : MonoBehaviour
 {
     private AudioSource _audioSource;
+    [SerializeField] private AudioGroupSO _winSfx;
+    [SerializeField] private AudioGroupSO _loseSfx;
 
     [Header("Listen on channel:")]
     [SerializeField] private AudioEventChannelSO _playSfxChannel;
     [SerializeField] private AudioEventChannelSO _uiSfxChannel;
+    [SerializeField] private BoolEventChannelSO _onCompletionChannel;
 
     private void Awake()
     {
@@ -18,6 +22,19 @@ public class AudioPlayer : MonoBehaviour
     {
         _playSfxChannel.OnEventRaised += PlayAudio;
         _uiSfxChannel.OnEventRaised += PlayAudio;
+        _onCompletionChannel.OnEventRaised += PlayEndGameAudio;
+    }
+
+    private void PlayEndGameAudio(bool win)
+    {
+        StartCoroutine(WaitAndPlayAudio(0.75f, win ? _winSfx : _loseSfx));
+    }
+
+    private IEnumerator WaitAndPlayAudio(float delay, AudioGroupSO audio)
+    {
+        yield return new WaitForSeconds(delay);
+        _audioSource.PlayOneShot(audio.GetClip(), audio.Volume);
+
     }
 
     private void PlayAudio(AudioGroupSO audioGroupSO)
@@ -29,5 +46,6 @@ public class AudioPlayer : MonoBehaviour
     {
         _playSfxChannel.OnEventRaised -= PlayAudio;
         _uiSfxChannel.OnEventRaised -= PlayAudio;
+        _onCompletionChannel.OnEventRaised -= PlayEndGameAudio;
     }
 }
