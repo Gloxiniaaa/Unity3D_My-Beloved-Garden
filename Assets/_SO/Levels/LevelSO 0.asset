@@ -15,3 +15,6 @@ MonoBehaviour:
   LevelNumber: 0
   FlowerCount: 10
   PlayerSpawnPosition: {x: 1, y: 0.5, z: 0.75}
+  GameplayToolSOs: []
+  AdditionalInstantiations:
+  - {fileID: 2045825891059178991, guid: d571c76958196b649bcacac59c92f279, type: 3}

@@ -18,3 +18,5 @@ MonoBehaviour:
   GameplayToolSOs:
   - {fileID: 11400000, guid: 45f7a936713014947b673af93e47cb65, type: 2}
   - {fileID: 11400000, guid: 93b80db1f56792f4b98cfe88b5d7e29e, type: 2}
+  AdditionalInstantiations:
+  - {fileID: 4493072334542113969, guid: 4d4b6a9858734154cb3d0076f097dce2, type: 3}
