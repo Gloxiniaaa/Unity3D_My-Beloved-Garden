@@ -15,7 +15,7 @@ MonoBehaviour:
   description: 'Before running the game, uncheck "Previouse Scene"
 
 '
-  _currentLevelIndex: 0
+  _currentLevelIndex: 4
   _previousScene: 0
   _levelDatabaseSO: {fileID: 11400000, guid: 67fe5d49f5935fd449169f9792029982, type: 2}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,

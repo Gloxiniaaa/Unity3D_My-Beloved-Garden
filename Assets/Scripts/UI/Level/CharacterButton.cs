@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class CharacterButton : MonoBehaviour
+public class CharacterButton : UIButton
 {
     [SerializeField] private TextMeshProUGUI _text;
     private int _characterIndex;
@@ -17,5 +17,6 @@ public class CharacterButton : MonoBehaviour
     public void SelectCharacter()
     {
         OnCharacterSelected.Invoke(_characterIndex);
+        PlayClickSfx();
     }
 }

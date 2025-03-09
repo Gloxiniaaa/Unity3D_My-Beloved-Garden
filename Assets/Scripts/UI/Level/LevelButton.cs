@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class LevelButton : MonoBehaviour
+public class LevelButton : UIButton
 {
     [SerializeField] private TextMeshProUGUI _levelText;
     private int _levelNumber;
@@ -17,5 +17,6 @@ public class LevelButton : MonoBehaviour
     public void SelectLevel()
     {
         OnLevelSelected.Invoke(_levelNumber);
+        PlayClickSfx();
     }
 }

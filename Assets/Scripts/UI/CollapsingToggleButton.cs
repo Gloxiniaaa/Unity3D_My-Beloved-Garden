@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollapsingToggleButton : MonoBehaviour
+public class CollapsingToggleButton : UIButton
 {
     [SerializeField] private CollapseMode _collapseMode;
     private CollapsibleUI[] _collapsibleButtons;
@@ -19,6 +19,7 @@ public class CollapsingToggleButton : MonoBehaviour
 
     public void ToggleCollapsing()
     {
+        PlayClickSfx();
         foreach (CollapsibleUI collapsibleButton in _collapsibleButtons)
         {
             collapsibleButton.Toggle();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
     private AudioSource _audioSource;
+    [SerializeField] private AudioGroupSO _clickSfx;
     [SerializeField] private AudioGroupSO _winSfx;
     [SerializeField] private AudioGroupSO _loseSfx;
 
@@ -23,6 +24,12 @@ public class AudioPlayer : MonoBehaviour
         _playSfxChannel.OnEventRaised += PlayAudio;
         _uiSfxChannel.OnEventRaised += PlayAudio;
         _onCompletionChannel.OnEventRaised += PlayEndGameAudio;
+        UIButton.OnClickButton += PlayClickButtonAudio;
+    }
+
+    private void PlayClickButtonAudio()
+    {
+        _audioSource.PlayOneShot(_clickSfx.GetRandomClip(), _clickSfx.Volume);
     }
 
     private void PlayEndGameAudio(bool win)
@@ -47,5 +54,6 @@ public class AudioPlayer : MonoBehaviour
         _playSfxChannel.OnEventRaised -= PlayAudio;
         _uiSfxChannel.OnEventRaised -= PlayAudio;
         _onCompletionChannel.OnEventRaised -= PlayEndGameAudio;
+        UIButton.OnClickButton -= PlayClickButtonAudio;
     }
 }

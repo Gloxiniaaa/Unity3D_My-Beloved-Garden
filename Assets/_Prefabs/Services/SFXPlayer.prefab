@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a962ac8683b8364fa36a1497d5c2101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clickSfx: {fileID: 11400000, guid: 9196ce798f9444a4fb694f91b5431005, type: 2}
   _winSfx: {fileID: 11400000, guid: b42c1041a91c58e42ba4338aee616859, type: 2}
   _loseSfx: {fileID: 11400000, guid: 79b3084cf2415904ca7c3f747b4fa209, type: 2}
   _playSfxChannel: {fileID: 11400000, guid: 7bc71d1d10866704999f7874adb9f71a, type: 2}
