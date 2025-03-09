@@ -174,7 +174,8 @@ MonoBehaviour:
     type: 3}
   _eventSystem: {fileID: 5657003095802316621, guid: ae5826c1e61dac6448c8fb5cf09f80be,
     type: 3}
-  _bgmPlayer: {fileID: 0}
+  _bgmPlayer: {fileID: 7258089736697389796, guid: c9a1ba8a7cdbb404b8460cd50f460e3e,
+    type: 3}
   _sfxPlayer: {fileID: 3699740760512403766, guid: 7158792ea3175604d8d8b1724414af12,
     type: 3}
   _flowerSpawner: {fileID: 4166922445523690440, guid: e70fd139cc8d85f4e8af38eea7c6a369,

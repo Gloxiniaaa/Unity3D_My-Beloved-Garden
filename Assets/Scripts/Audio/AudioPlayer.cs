@@ -29,7 +29,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void PlayClickButtonAudio()
     {
-        _audioSource.PlayOneShot(_clickSfx.GetRandomClip(), _clickSfx.Volume);
+        _audioSource.PlayOneShot(_clickSfx.GetClip(), _clickSfx.Volume);
     }
 
     private void PlayEndGameAudio(bool win)
@@ -46,7 +46,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void PlayAudio(AudioGroupSO audioGroupSO)
     {
-        _audioSource.PlayOneShot(audioGroupSO.GetRandomClip(), audioGroupSO.Volume);
+        _audioSource.PlayOneShot(audioGroupSO.GetClip(), audioGroupSO.Volume);
     }
 
     private void OnDisable()

@@ -11,7 +11,7 @@ public class GameInitiator : MonoBehaviour
     [SerializeField] private GameObject _eventSystem;
 
     [Header("Services")]
-    [SerializeField] private AudioPlayer _bgmPlayer;
+    [SerializeField] private BGMPlayer _bgmPlayer;
     [SerializeField] private AudioPlayer _sfxPlayer;
     [SerializeField] private FlowerSpawner _flowerSpawner;
     [SerializeField] private FlowerCounter _flowerCounter;
@@ -31,6 +31,7 @@ public class GameInitiator : MonoBehaviour
 
         // intialize serrcices
         Instantiate(_sfxPlayer);
+        Instantiate(_bgmPlayer);
         Instantiate(_flowerSpawner);
 
         _levelSceneManagerSO.LoadLevel();
