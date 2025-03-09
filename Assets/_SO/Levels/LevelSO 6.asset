@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92261662b69bc86498b8bb63fe474f74, type: 3}
-  m_Name: LevelSO 5
+  m_Name: LevelSO 6
   m_EditorClassIdentifier: 
-  LevelNumber: 5
+  LevelNumber: 6
   FlowerCount: 18
-  PlayerSpawnPosition: {x: -3, y: 0.5, z: 1.75}
+  PlayerSpawnPosition: {x: -3, y: 0.5, z: 2.75}
   GameplayToolSOs:
   - {fileID: 11400000, guid: 45f7a936713014947b673af93e47cb65, type: 2}
   - {fileID: 11400000, guid: 93b80db1f56792f4b98cfe88b5d7e29e, type: 2}

@@ -133,7 +133,7 @@ public class LevelSceneManagerSO : DescriptionBaseSO
     [ContextMenu("UnLock All Levels")]
     private void UnLockAllLevels()
     {
-        MaxUnlockedLevel = _levelDatabaseSO.GetTotalLevels();
+        MaxUnlockedLevel = _levelDatabaseSO.GetTotalLevels() - 1;
     }
 }
 

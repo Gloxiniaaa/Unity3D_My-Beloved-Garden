@@ -25,7 +25,7 @@ public class Flower : MonoBehaviour, IPooledObject<Flower>
         {
             Debug.Log("You stepped on a flower!!!");
             _onStepOnFlower.RaiseEvent();
-            transform.position += Vector3.down * 0.2f;
+            transform.position += Vector3.down * 0.25f;
             transform.DOKill();
         }
         if (other.CompareTag(Constant.REVERSE_PLAYER_TAG))
