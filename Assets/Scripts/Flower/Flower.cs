@@ -8,15 +8,30 @@ public class Flower : MonoBehaviour, IPooledObject<Flower>
 {
     private Collider _collider;
     private IPool<Flower> _flowerPool;
+
     [Header("Broadcast on:")]
     [SerializeField] private VoidEventChannelSO _onUndoFlowerBloom;
     [SerializeField] private VoidEventChannelSO _onStepOnFlower;
 
+    [Header("Listen to:")]
+    [SerializeField] private BoolEventChannelSO _LoadLevelChannel;
 
     private void Awake()
     {
         transform.localScale = Vector3.zero;
         _collider = GetComponent<BoxCollider>();
+    }
+
+    void OnEnable()
+    {
+        _LoadLevelChannel.OnEventRaised += SetDefault;
+    }
+
+    private void SetDefault(bool arg0)
+    {
+        transform.localScale = Vector3.zero;
+        transform.DOKill();
+        _flowerPool.Return(this);
     }
 
     void OnTriggerEnter(Collider other)
@@ -53,6 +68,7 @@ public class Flower : MonoBehaviour, IPooledObject<Flower>
 
     private void OnDisable()
     {
+        _LoadLevelChannel.OnEventRaised -= SetDefault;
         transform.localScale = Vector3.zero;
         transform.DOKill();
     }

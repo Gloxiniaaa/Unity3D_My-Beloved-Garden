@@ -14,6 +14,7 @@ public class BGMPlayer : MonoBehaviour
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        _audioSource.loop = true;
     }
 
     private void OnEnable()
@@ -27,6 +28,15 @@ public class BGMPlayer : MonoBehaviour
         _audioSource.Stop();
     }
 
+    public void TurnOnBGM()
+    {
+        if (_bgm.Volume == 0)
+            return;
+        _audioSource.volume = _bgm.Volume;
+        _audioSource.clip = _bgm.GetClip();
+        _audioSource.Play();
+    }
+
     private void ChangeVolume(int arg0)
     {
         _bgm.Volume = arg0;
@@ -37,13 +47,6 @@ public class BGMPlayer : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        _audioSource.clip = _bgm.GetClip();
-        _audioSource.volume = _bgm.Volume;
-        _audioSource.loop = true;
-        _audioSource.PlayDelayed(1f);
-    }
 
     void OnDisable()
     {

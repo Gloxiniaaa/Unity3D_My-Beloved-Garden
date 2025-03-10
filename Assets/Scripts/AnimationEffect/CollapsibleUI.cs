@@ -23,14 +23,14 @@ public class CollapsibleUI : MonoBehaviour
         }
     }
 
-    private void Show()
+    public void Show()
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(1, _duration).SetEase(Ease.OutBack);
         _isCollapsed = false;
     }
 
-    private void Hide()
+    public void Hide()
     {
         transform.localScale = Vector3.one;
         transform.DOScale(0, _duration).SetEase(Ease.InBack);

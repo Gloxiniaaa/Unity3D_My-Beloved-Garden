@@ -17,7 +17,7 @@ public class AudioGroupSO : ScriptableObject
         {
             AudioType.SINGLE => _audioClips[0],
             AudioType.RAMDOM => _audioClips[Random.Range(0, _audioClips.Count)],
-            AudioType.SEQUENTIAL => _audioClips[idx >= (_audioClips.Count - 1) ? idx = 0 : idx++],
+            AudioType.SEQUENTIAL => _audioClips[(idx >= (_audioClips.Count - 1)) ? idx = 0 : ++idx],
             _ => null,
         };
     }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Jump Sfx
   m_EditorClassIdentifier: 
   _audioClips:
-  - {fileID: 8300000, guid: f5888d25aaa3f364b82e885ec20fe8a4, type: 3}
+  - {fileID: 8300000, guid: f851d85b670fe134ead43472c0860076, type: 3}
+  _audioType: 0
   Volume: 1

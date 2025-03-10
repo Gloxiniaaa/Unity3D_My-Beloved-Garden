@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4305712264353655791}
   - component: {fileID: 5694112389155268947}
   - component: {fileID: 2778535603566745733}
-  - component: {fileID: 2148647685182242807}
+  - component: {fileID: 351080818923396419}
   m_Layer: 5
   m_Name: ReplayBtn
   m_TagString: Untagged
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2148647685182242807}
-        m_TargetAssemblyTypeName: GoToSceneButton, Assembly-CSharp
-        m_MethodName: GoToScene
+      - m_Target: {fileID: 351080818923396419}
+        m_TargetAssemblyTypeName: LoadLevelButton, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2148647685182242807
+--- !u!114 &351080818923396419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,10 +180,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360995878052191097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5e46d9b2eb223478e2d91f7c40bde2, type: 3}
+  m_Script: {fileID: 11500000, guid: 11180e96291e1aa438bbfb54601c2bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneType: 2
+  loadLevelType: 0
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
 --- !u!1 &6097597137382961113
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,10 +300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c425c51535d4c440882232947513436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winGamePannel: {fileID: 7030086474631154148}
-  _loseGamePannel: {fileID: 1360995878052191097}
+  _winGameBtn: {fileID: 7030086474631154148}
+  _loseGameBtn: {fileID: 1360995878052191097}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
     type: 2}
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
 --- !u!1 &6496596739262590112
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +452,7 @@ GameObject:
   - component: {fileID: 8260746041893901144}
   - component: {fileID: 8531404756202217354}
   - component: {fileID: 8859407589192804950}
-  - component: {fileID: 4150379034579697032}
+  - component: {fileID: 3848053521221980097}
   m_Layer: 5
   m_Name: NextBtn
   m_TagString: Untagged
@@ -560,9 +562,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4150379034579697032}
-        m_TargetAssemblyTypeName: GoToNextLevel, Assembly-CSharp
-        m_MethodName: ToNextLevel
+      - m_Target: {fileID: 3848053521221980097}
+        m_TargetAssemblyTypeName: LoadLevelButton, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -572,7 +574,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4150379034579697032
+--- !u!114 &3848053521221980097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,11 +583,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7030086474631154148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34d36eecf3eed94a84c1bb24ab4c842, type: 3}
+  m_Script: {fileID: 11500000, guid: 11180e96291e1aa438bbfb54601c2bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toNextLevelChannel: {fileID: 11400000, guid: b58db39e4f6977543b3e31e8cc337e92,
-    type: 2}
+  loadLevelType: 1
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
 --- !u!1 &7657357180092095692
 GameObject:
   m_ObjectHideFlags: 0

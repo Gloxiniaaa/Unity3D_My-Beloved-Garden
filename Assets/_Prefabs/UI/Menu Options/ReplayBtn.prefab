@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4901014603354329419}
   - component: {fileID: 519085771023816008}
   - component: {fileID: 8555646616882061649}
+  - component: {fileID: 7358660064301891916}
   m_Layer: 5
   m_Name: ReplayBtn
   m_TagString: Untagged
@@ -119,4 +120,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519085771023816008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7358660064301891916}
+        m_TargetAssemblyTypeName: LoadLevelButton, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7358660064301891916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658146941406963755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11180e96291e1aa438bbfb54601c2bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadLevelType: 0
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}

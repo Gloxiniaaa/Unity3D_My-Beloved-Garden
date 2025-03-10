@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2dfc6f0cfa9f6b4c81f4da2d3696523, type: 3}
-  m_Name: ToNextLevelChannel
+  m_Script: {fileID: 11500000, guid: 83a2112b16f4f3948bbef9cdf9e5c0c9, type: 3}
+  m_Name: LoadLevel
   m_EditorClassIdentifier: 
   description: 

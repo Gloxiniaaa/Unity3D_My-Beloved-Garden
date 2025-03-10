@@ -188,6 +188,11 @@ MonoBehaviour:
     type: 3}
   _characterDatabaseSO: {fileID: 11400000, guid: 63f037a2ad5249443b7cbe678d59e077,
     type: 2}
+  _toNextLevelChannel: {fileID: 11400000, guid: b58db39e4f6977543b3e31e8cc337e92,
+    type: 2}
+  _replayCurrentLevelChannel: {fileID: 11400000, guid: 29fb2383de52c8a4fa9ebc02debaac45,
+    type: 2}
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

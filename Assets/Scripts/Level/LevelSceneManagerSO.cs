@@ -23,7 +23,7 @@ public class LevelSceneManagerSO : DescriptionBaseSO
     private void OnEnable()
     {
         _onCompletionChannel.OnEventRaised += UnlockNextLevel;
-        _toNextLevelChannel.OnEventRaised += GotoNextLevel;
+        // _toNextLevelChannel.OnEventRaised += GotoNextLevel;
     }
 
     public void SelectLevel(int levelIndex)
@@ -31,13 +31,18 @@ public class LevelSceneManagerSO : DescriptionBaseSO
         _currentLevelIndex = levelIndex;
     }
 
-    private void GotoNextLevel()
+    public void LoadNextLevel()
     {
         _currentLevelIndex++;
-        SceneManager.LoadSceneAsync((int)SceneType.GAME_PLAY_SCENE);
+        UnloadPreviousThenLoadNewLevel();
     }
 
-    public void LoadLevel()
+    public void LoadCurrentLevel()
+    {
+        UnloadPreviousThenLoadNewLevel();
+    }
+
+    private void UnloadPreviousThenLoadNewLevel()
     {
         Debug.Log($"_previousScene: {_previousScene}");
 
@@ -54,16 +59,16 @@ public class LevelSceneManagerSO : DescriptionBaseSO
                     Debug.LogError("Scene Unload Failed: " + handle.OperationException);
                 }
 
-                LoadNextLevel();
+                LoadLevel();
             };
         }
         else
         {
-            LoadNextLevel();
+            LoadLevel();
         }
     }
 
-    private void LoadNextLevel()
+    private void LoadLevel()
     {
         LevelSO LevelToLoad = GetLevelSO(_currentLevelIndex);
 
@@ -119,7 +124,7 @@ public class LevelSceneManagerSO : DescriptionBaseSO
     private void OnDisable()
     {
         _onCompletionChannel.OnEventRaised -= UnlockNextLevel;
-        _toNextLevelChannel.OnEventRaised -= GotoNextLevel;
+        // _toNextLevelChannel.OnEventRaised -= GotoNextLevel;
     }
 
     [ContextMenu("Reset Value")]

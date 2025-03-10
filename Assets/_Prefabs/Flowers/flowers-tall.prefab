@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onUndoFlowerBloom: {fileID: 11400000, guid: d906b9998d2cbcd4b878d7a0043204f9, type: 2}
   _onStepOnFlower: {fileID: 11400000, guid: 6d82c2a4cd7a4b345a0f1294a4e20687, type: 2}
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
 --- !u!65 &7932433877943752963
 BoxCollider:
   m_ObjectHideFlags: 0
