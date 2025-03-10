@@ -16,14 +16,12 @@ public class LevelSceneManagerSO : DescriptionBaseSO
 
     [Header("Listen to:")]
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
-    [SerializeField] private VoidEventChannelSO _toNextLevelChannel;
 
 
 
     private void OnEnable()
     {
         _onCompletionChannel.OnEventRaised += UnlockNextLevel;
-        // _toNextLevelChannel.OnEventRaised += GotoNextLevel;
     }
 
     public void SelectLevel(int levelIndex)
@@ -124,7 +122,6 @@ public class LevelSceneManagerSO : DescriptionBaseSO
     private void OnDisable()
     {
         _onCompletionChannel.OnEventRaised -= UnlockNextLevel;
-        // _toNextLevelChannel.OnEventRaised -= GotoNextLevel;
     }
 
     [ContextMenu("Reset Value")]

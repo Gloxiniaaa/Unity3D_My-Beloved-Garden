@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -9,7 +8,6 @@ public class BGMPlayer : MonoBehaviour
     [Header("Listen to:")]
     [SerializeField] private IntEventChannelSO _bgmVolumeChannel;
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
-
 
     void Awake()
     {
@@ -47,13 +45,9 @@ public class BGMPlayer : MonoBehaviour
         }
     }
 
-
     void OnDisable()
     {
         _bgmVolumeChannel.OnEventRaised -= ChangeVolume;
         _onCompletionChannel.OnEventRaised -= TurnOffBGM;
     }
-
-
-
 }
