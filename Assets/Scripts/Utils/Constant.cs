@@ -16,9 +16,3 @@ public class Constant
     public const int FLOWER_LAYER_MASK = 1 << FLOWER_LAYER;
 
 }
-public enum SceneType
-{
-    START_SCENE = 0,
-    HOME_SCENE = 1,
-    GAME_PLAY_SCENE = 2
-}
