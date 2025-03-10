@@ -34,7 +34,7 @@ public class AudioPlayer : MonoBehaviour
 
     private void PlayEndGameAudio(bool win)
     {
-        StartCoroutine(WaitAndPlayAudio(0.75f, win ? _winSfx : _loseSfx));
+        StartCoroutine(WaitAndPlayAudio(0.5f, win ? _winSfx : _loseSfx));
     }
 
     private IEnumerator WaitAndPlayAudio(float delay, AudioGroupSO audio)

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Win Sfx
   m_EditorClassIdentifier: 
   _audioClips:
+  - {fileID: 8300000, guid: 84a8e3651b5999c4bac76e7c25774aa0, type: 3}
   - {fileID: 8300000, guid: ac4b48f8abd338642a5929429f8097e7, type: 3}
-  Volume: 1
+  _audioType: 0
+  Volume: 0.7
