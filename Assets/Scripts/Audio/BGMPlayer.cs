@@ -6,8 +6,11 @@ public class BGMPlayer : MonoBehaviour
     private AudioSource _audioSource;
     [SerializeField] private AudioGroupSO _bgm;
     [Header("Listen to:")]
-    [SerializeField] private IntEventChannelSO _bgmVolumeChannel;
     [SerializeField] private BoolEventChannelSO _onCompletionChannel;
+    [SerializeField] private BoolEventChannelSO _LoadLevelChannel;
+
+    [SerializeField] private VoidEventChannelSO _toggleBGMChannel;
+    private bool _mute = false;
 
     void Awake()
     {
@@ -17,8 +20,10 @@ public class BGMPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        _bgmVolumeChannel.OnEventRaised += ChangeVolume;
         _onCompletionChannel.OnEventRaised += TurnOffBGM;
+        _toggleBGMChannel.OnEventRaised += ToggleBGM;
+        _LoadLevelChannel.OnEventRaised += PlayBgmOnNewLevel;
+        PlayBgmOnNewLevel();
     }
 
     private void TurnOffBGM(bool arg0)
@@ -26,28 +31,32 @@ public class BGMPlayer : MonoBehaviour
         _audioSource.Stop();
     }
 
-    public void TurnOnBGM()
+    private void PlayBgmOnNewLevel(bool isNextLevel = true)
     {
-        if (_bgm.Volume == 0)
+        if (_mute)
             return;
         _audioSource.volume = _bgm.Volume;
         _audioSource.clip = _bgm.GetClip();
         _audioSource.Play();
     }
 
-    private void ChangeVolume(int arg0)
+    private void ToggleBGM()
     {
-        _bgm.Volume = arg0;
-        _audioSource.volume = _bgm.Volume;
-        if (arg0 == 0)
+        if (_mute)
         {
-            _audioSource.Stop();
+            _audioSource.Play();
         }
+        else
+        {
+            _audioSource.Pause();
+        }
+        _mute = !_mute;
     }
 
     void OnDisable()
     {
-        _bgmVolumeChannel.OnEventRaised -= ChangeVolume;
         _onCompletionChannel.OnEventRaised -= TurnOffBGM;
+        _toggleBGMChannel.OnEventRaised -= ToggleBGM;
+        _LoadLevelChannel.OnEventRaised -= PlayBgmOnNewLevel;
     }
 }

@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2df3ce55ad632d949b054697d6b046a7, type: 3}
   - {fileID: 8300000, guid: 4296abff08a9ccc47a2f453542d6aa0c, type: 3}
   _audioType: 2
-  Volume: 0.1
+  Volume: 0.15

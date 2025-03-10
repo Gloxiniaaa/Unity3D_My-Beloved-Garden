@@ -66,7 +66,7 @@ public class GameInitiator : MonoBehaviour
         Transform services = new GameObject("Services").transform;
         Instantiate(_flowerSpawner, services);
         Instantiate(_sfxPlayer, services);
-        _bgmPlayer = Instantiate(_bgmPlayer, services);
+        Instantiate(_bgmPlayer, services);
         _flowerCounter = Instantiate(_flowerCounter, services);
     }
 
@@ -75,8 +75,6 @@ public class GameInitiator : MonoBehaviour
         LevelSO currentLevelSO = _levelSceneManagerSO.GetCurrentLevelSO();
         if (currentLevelSO == null)
             return;
-
-        _bgmPlayer.TurnOnBGM();
 
         _flowerCounter.CountLandSlots(currentLevelSO.FlowerCount);
         

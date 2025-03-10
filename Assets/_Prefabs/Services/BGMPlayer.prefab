@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bgm: {fileID: 11400000, guid: 4f72c13a2a39c5e4784ef5802aa0c359, type: 2}
-  _bgmVolumeChannel: {fileID: 11400000, guid: 5120cfa55e1dd8b498646758eb137256, type: 2}
   _onCompletionChannel: {fileID: 11400000, guid: 67022abdfa7365a4683deaea789e27df,
     type: 2}
+  _LoadLevelChannel: {fileID: 11400000, guid: 672661121abe3dc42b0dd5ed56e298ac, type: 2}
+  _toggleBGMChannel: {fileID: 11400000, guid: 083905b220724bd428bd62ad6a51bf60, type: 2}
